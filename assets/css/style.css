@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6,li,ol {
 
 .container {
     width: 100%;
-    padding: 42px 40px 0 40px;
+    padding: 42px 40px;
 }
 
 .image-container {
@@ -38,9 +38,8 @@ h1, h2, h3, h4, h5, h6,li,ol {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: fixed;
+
     z-index: -2;
 }
 
@@ -48,33 +47,33 @@ h1, h2, h3, h4, h5, h6,li,ol {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 1080px;
+
+    position: fixed;
     z-index: -3;
 }
-.image2 {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 1080px;
-    z-index: -3;
-}
+
 
 .bckg-mix {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: fixed;
+
     background: #00182C;
     mix-blend-mode: multiply;
     opacity: 0.9;
     z-index: -1;
+}
+
+.header {
+    position: fixed;
+    z-index: 100000;
+    width: 100%;
+}
+
+.header--second {
+    object-fit: cover;
+    background: #00182C;
 }
 
 .header__inner {
@@ -120,6 +119,15 @@ h1, h2, h3, h4, h5, h6,li,ol {
     letter-spacing: 3px;
 }
 
+.nav__link.swiper-slide {
+    width: auto;
+    height: auto;
+}
+
+.header--third .nav__link {
+    color: #00182C;
+}
+
 .nav__link.active:after {
 
     position: absolute;
@@ -144,6 +152,10 @@ h1, h2, h3, h4, h5, h6,li,ol {
 
 .nav__link.active {
     opacity: 1;
+}
+
+.header--third .header__phone {
+    color: #41A99E;
 }
 
 .header__phone {
@@ -196,28 +208,26 @@ h1, h2, h3, h4, h5, h6,li,ol {
 /* Компания */
 
 .company {
-
+    overflow: hidden;
 }
 
 
 .image-right {
-    overflow: hidden;
     z-index: -1;
     position: absolute;
-    width: 502px;
-    height: 696px;
+    width: 100%;
+    height: 100%;
     left: 1416px;
     top: -120px;
 }
 
 .image-left{
-    overflow: hidden;
     z-index: -1;
     position: absolute;
-    width: 819px;
-    height: 553px;
+    width: 100%;
+    height: 100%;
     left: -48px;
-    top: 624px;
+    top: 680px;
 }
 
 .company__logo {
@@ -375,11 +385,17 @@ leader__logoContainer {
 }
 
 .section__footer {
-    margin-top: 5.1%;
+    /*margin-top: 5.1%;*/
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 96%;
     align-items: center;
+
+    padding-bottom: 20px;
+
+    position: fixed;
+    bottom: 0;
 }
 
 .company__year {
@@ -486,12 +502,16 @@ leader__logoContainer {
     margin-top: 2%;
 }
 
+.engineering__container {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    flex-direction: column;
+}
+
 .plan-img {
-    position: absolute;
-    left: 53.1%;
-    right: 2.1%;
-    top: 154.91%;
-    bottom: 6.3%;
+    position: fixed;
+    padding-bottom: 2%;
 }
 
 .engineering .section__footer {
@@ -505,6 +525,10 @@ leader__logoContainer {
 .equipment {
     width: 100vw;
     height: 100vh;
+
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 .equipment-white {
@@ -521,22 +545,22 @@ leader__logoContainer {
 }
 
 .equipment-bg {
-    position: absolute;
+    position: fixed;
     width: 698px;
-    height: 1080px;
-    left: 1222px;
-    top: 2160px;
+    height: 100%;
+
     z-index: -2;
     background: #00182C;
 }
 
 .equipment-img {
     overflow: hidden;
+
+    position: fixed;
+    bottom: 0;
     z-index: -1;
-    position: absolute;
+
     height: 657px;
-    left: 1035px;
-    top: 2579px;
 }
 
 .equipment-img object {
@@ -655,7 +679,7 @@ leader__logoContainer {
     visibility: hidden;
 }
 
-.swiper-wrapper {
+.image-slider {
     width: 631px;
     height: 469px;
 }
@@ -671,7 +695,7 @@ leader__logoContainer {
     height: 469px;
 }
 
-/*
+
 .swiper-pagination {
     width: auto !important;
     left: auto !important;
@@ -717,6 +741,11 @@ leader__logoContainer {
     align-items: center;
 }
 
+.slide1 {
+    transform: translate3d(0, 0, 0);
+}
+
+
 .pagination-after .swiper-pagination-bullet {
     height: 0px;
     background: #41A99E;
@@ -742,17 +771,13 @@ leader__logoContainer {
     opacity: 0.4;
 }
 
-*/
 
 .text-slider .swiper-wrapper {
     height: 60px;
     width: 100px;
-    margin: 0 0 0 0;
+
 }
 
-.swiper-text {
-    margin-left: 64.3%;
-}
 
 .text-slider .swiper-slide {
     cursor: pointer;
@@ -787,13 +812,12 @@ leader__logoContainer {
 /* SOCIAL */
 
 .social-bg {
-    margin-top: 90px;
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 3150px;
+
+    position: fixed;
     z-index: -3;
 }
 
@@ -913,5 +937,30 @@ leader__logoContainer {
 .social .section__footer {
     width: 100%;
     margin-top: 9%;
-    padding: 0 40px 0 40px;
+    padding: 0 40px 20px 40px;
 }
+
+.swiper__item:active {
+    outline: none;
+    background-color: transparent;
+}
+
+.swiper-slide:active {
+    outline: none;
+    background-color: transparent;
+}
+
+.swiper__item:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.swiper-slide:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.swiper--main .swiper-slide {
+    position: relative;
+}
+

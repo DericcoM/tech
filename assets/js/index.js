@@ -29,45 +29,82 @@ download.forEach( (button)=> {
 });
 
 
-var menu = ['Грохоты', 'Флотомашины', 'Дробилки', 'Цинтрифуги'];
-var swiper1 = new Swiper(".image-slider", {
+let swiperMain = new Swiper(".swiper--main", {
     spaceBetween: 0,
     slidesPerView: 1,
+
+});
+
+
+swiperMain.on('slideChange', function () {
+    let header = document.querySelector(".header");
+    let activeSlide = swiperMain.activeIndex;
+
+    header.className = '';
+    header.classList.add("header");
+
+    if(activeSlide == 1) {
+        header.classList.add("header--second");
+    }else if(activeSlide == 2) {
+        header.classList.add("header--third");
+    }else if(activeSlide == 3) {
+        header.classList.add("header--fourth");
+    };
+
+});
+
+let swiper = new Swiper(".swiper", {
+    spaceBetween: 10,
+    slidesPerView: 9,
     freeMode: true,
+    loop: true,
+    watchSlidesProgress: true,
     autoplay: {
-        delay: 2500, disableOnInteraction: false,
+        delay: 2500,
+        disableOnInteraction: false,
     },
-
-    //pagination: {
-    //    el: '.swiper-pagination',
-    //    clickable: true,
-    //    renderBullet: function (index, className) {
-    //        return `<div class=${className}><span>${menu[index]}</span></div>`;
-    //    },
-    //},
 });
-
-var swiper2 = new Swiper(".text-slider", {
-    spaceBetween: 0,
-    slidesPerView: 'auto',
-    freeMode: true,
-    slideToClickedSlide: true,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+let swiper2 = new Swiper(".swiper-text", {
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    thumbs: {
+        swiper: swiper,
     },
 });
 
-swiper1.controller.control = swiper2;
-swiper2.controller.control = swiper1;
 
-var textSlides = document.querySelectorAll('.swiper__item');
 
-textSlides.forEach(function (slide, index) {
-    slide.addEventListener('click', function () {
-        swiper1.slideTo(index);
-    });
-});
+let initNav = () => {
+    let navLinks = document.querySelectorAll(".nav__link");
+
+    navLinks.forEach((el) => {
+        el.addEventListener("click", (e) => {
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+            })
+            e.target.classList.add("active");
+
+            let navLinksArr =  Array.from(navLinks);
+            swiperMain.slideTo(navLinksArr.indexOf(e.target))
+        })
+    })
+
+    let scrollMenu = document.querySelectorAll(".scroll-page");
+
+    scrollMenu.forEach((el) => {
+        el.addEventListener("click", (e) => {
+            let navLinksArr =  Array.from(scrollMenu);
+            swiperMain.slideTo(navLinksArr.indexOf(e.target))
+        })
+    })
+
+}
+
+initNav();
 
 
 let svg1 = document.querySelector('.image-right object');
@@ -91,6 +128,31 @@ document.addEventListener('mousemove', function(e) {
     svg2.style.transform = 'translate(' + svg2X + 'px, ' + svg2Y + 'px)';
 });
 
+let initDarkness = () => {
+    let darkness = document.querySelectorAll(".text-slider .swiper-slide");
 
+    swiper1.on('slideChange', () => {
+        let indexActive = swiper2.activeIndex;
+        let opacity = 1;
+
+        darkness[indexActive].style.opacity = opacity;
+
+        // обход массива от заданного индекса до начала
+        for (let i = indexActive - 1; i >= 0; i--) {
+            opacity -= 0.3;
+            darkness[i].style.opacity = opacity;
+        }
+
+        // обход массива от заданного индекса до конца
+        for (let i = indexActive + 1; i < darkness.length; i++) {
+            opacity -= 0.3;
+            darkness[i].style.opacity = opacity;
+        }
+    });
+}
+
+
+
+initDarkness();
 
 
