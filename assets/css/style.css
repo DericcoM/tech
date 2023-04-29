@@ -199,6 +199,27 @@ h1, h2, h3, h4, h5, h6,li,ol {
 
 }
 
+
+.image-right {
+    overflow: hidden;
+    z-index: -1;
+    position: absolute;
+    width: 502px;
+    height: 696px;
+    left: 1416px;
+    top: -120px;
+}
+
+.image-left{
+    overflow: hidden;
+    z-index: -1;
+    position: absolute;
+    width: 819px;
+    height: 553px;
+    left: -48px;
+    top: 624px;
+}
+
 .company__logo {
     width: auto;
     height: auto;

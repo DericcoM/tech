@@ -70,4 +70,27 @@ textSlides.forEach(function (slide, index) {
 });
 
 
+let svg1 = document.querySelector('.image-right object');
+let svg2 = document.querySelector('.image-left object');
+
+let svg1CoeffX = 0.05;
+let svg1CoeffY = 0.05;
+let svg2CoeffX = -0.05;
+let svg2CoeffY = -0.05;
+
+document.addEventListener('mousemove', function(e) {
+    let mouseX = e.clientX;
+    let mouseY = e.clientY;
+
+    let svg1X = mouseX * svg1CoeffX;
+    let svg1Y = mouseY * svg1CoeffY;
+    let svg2X = mouseX * svg2CoeffX;
+    let svg2Y = mouseY * svg2CoeffY;
+
+    svg1.style.transform = 'translate(' + svg1X + 'px, ' + svg1Y + 'px)';
+    svg2.style.transform = 'translate(' + svg2X + 'px, ' + svg2Y + 'px)';
+});
+
+
+
 
