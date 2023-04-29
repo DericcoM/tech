@@ -1,13 +1,42 @@
 const languageButtons = document.querySelectorAll(".language");
 
 languageButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener('click', () => {
         languageButtons.forEach((button) => {
-            button.classList.toggle("active");
+            button.classList.toggle('active', button === event.target);
         });
 
+        const lang = event.target.dataset.lang;
+        switchLanguage(lang);
     });
 });
+
+function switchLanguage(lang) {
+    const elements = document.querySelectorAll('[data-translate]');
+    loadTranslations(lang, function(translations) {
+        elements.forEach(function(element) {
+            const key = element.dataset.translate;
+            element.style.opacity = 0;
+            setTimeout(() => {
+                element.textContent = translations[key];
+                element.style.opacity = 1;
+            }, 500);
+        });
+    });
+}
+
+function loadTranslations(lang, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', './assets/lang.json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const translations = JSON.parse(xhr.responseText);
+            const langTranslations = translations[lang];
+            callback(langTranslations);
+        }
+    };
+    xhr.send();
+}
 
 const download = document.querySelectorAll(".download");
 
@@ -154,5 +183,7 @@ let initDarkness = () => {
 
 
 initDarkness();
+
+
 
 
