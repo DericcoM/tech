@@ -645,7 +645,7 @@ leader__logoContainer {
 
 .equipment__container {
     margin-left: 2.1%;
-    margin-top: 9.6%;
+    margin-top: 6.6%;
     height: 100%;
     width: 100%;
 }
@@ -805,6 +805,8 @@ leader__logoContainer {
 }
 
 .swiper__dot {
+    cursor: pointer;
+
     font-size: 0;
     width: 30px;
     height: 7px;
@@ -1096,6 +1098,13 @@ leader__logoContainer {
 }
 
 @media (max-width: 1480px) {
+
+    .equipment__container {
+
+        margin-top: 9.6%;
+
+    }
+
 
     .engineering__text {
         margin-left: 10%;
