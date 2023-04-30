@@ -24,13 +24,25 @@
             <div class="header__flagContainer">
                 <img src="assets/img/flag.png" alt="" class="header__flag">
             </div>
+            <div class="header__menu">
+                <div class="menu-toggle">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                </div>
+                <nav class="menu">
+                    <a data-translate="company" href="#first" class="nav__link active ">Компания</a>
+                    <a data-translate="engineering" href="#second" class="nav__link ">Инжиниринг</a>
+                    <a data-translate="equipment" href="#third" class="nav__link ">Оборудование</a>
+                    <a data-translate="contacts" href="#forth" class="nav__link ">Контакты</a>
+                </nav>
+            </div>
             <div class="header__main">
                 <div class="a123">
                             <nav class="header__nav">
-                                <a href="#" class="nav__link active ">Компания</a>
-                                <a href="#" class="nav__link ">Инжиниринг</a>
-                                <a href="#" class="nav__link ">Оборудование</a>
-                                <a href="#" class="nav__link ">Контакты</a>
+                                <a data-translate="company" href="#" class="nav__link active ">Компания</a>
+                                <a data-translate="engineering" href="#" class="nav__link ">Инжиниринг</a>
+                                <a data-translate="equipment" href="#" class="nav__link ">Оборудование</a>
+                                <a data-translate="contacts" href="#" class="nav__link ">Контакты</a>
                             </nav>
 
 
@@ -38,8 +50,8 @@
                 </div>
 
                 <div class="language-switch">
-                    <button class="language active" id="ru-button">Ru</button>
-                    <button class="language" id="eu-button">En</button>
+                    <button class="language active" id="ru-button" data-lang="ru">Ru</button>
+                    <button class="language" id="eu-button" data-lang="en">En</button>
                 </div>
             </div>
         </div>
@@ -49,7 +61,7 @@
 <main>
     <div class="swiper--main">
         <div class="swiper-wrapper">
-            <section class="company swiper-slide">
+            <section id="first" class="company swiper-slide">
                 <img src="assets/img/background1.png" class="image1">
                 <div class="bckg-mix"></div>
                 <div class="image-right">
@@ -61,24 +73,25 @@
                 <div class="container">
 
                     <img src="assets/img/logo.png" alt="" class="company__logo">
+                    <img src="assets/img/logo-mob.png" alt="" class="company__logo-mob">
 
                     <div class="section-container">
-                        <h1 class="company__title">Ваш успех - наша миссия!</h1>
+                        <h1 data-translate="company__title" class="company__title">Ваш успех - наша миссия!</h1>
                         <div class="company__inner">
                             <div class="company__prop">
                                 <div class="company__prop-img">
                                     <object data="assets/img/Ic1.svg" type="image/svg+xml"></object>
                                 </div>
-                                <h3 class="company__prop-title">Мы - производитель</h3>
-                                <p class="company__prop-subtitle">высокотехнологичного
+                                <h3 data-translate="company__prop-title-1" class="company__prop-title">Мы - производитель</h3>
+                                <p data-translate="company__prop-subtitle-1" class="company__prop-subtitle">высокотехнологичного
                                     и качественного оборудования для горной, химической, пищевой промышленности и коммунального хозяйства.</p>
                             </div>
                             <div class="company__prop">
                                 <div class="company__prop-img">
                                     <object data="assets/img/Ic2.svg" type="image/svg+xml"></object>
                                 </div>
-                                <h3 class="company__prop-title">Инжиниринг</h3>
-                                <p class="company__prop-subtitle">объектов под ключ, техническое перевооружение
+                                <h3 data-translate="company__prop-title-2" class="company__prop-title">Инжиниринг</h3>
+                                <p data-translate="company__prop-subtitle-2" class="company__prop-subtitle">объектов под ключ, техническое перевооружение
                                     и модернизация производятся нашими технологами на основании научных знаний, расчётов
                                     и проектирования процессов.</p>
                             </div>
@@ -86,28 +99,28 @@
                                 <div class="company__prop-img">
                                     <object data="assets/img/Ic3.svg" type="image/svg+xml"></object>
                                 </div>
-                                <h3 class="company__prop-title">Сервисное обслуживание</h3>
-                                <p class="company__prop-subtitle">оборудования осуществляется профессионалами нашей компании
+                                <h3 data-translate="company__prop-title-3" class="company__prop-title">Сервисное обслуживание</h3>
+                                <p data-translate="company__prop-subtitle-3" class="company__prop-subtitle">оборудования осуществляется профессионалами нашей компании
                                     с большим опытом работы в самых нестандартных ситуациях.</p>
                             </div>
                         </div>
                         <div class="company__subtitle">
-                            <p class="company__description">“Наша компания - глобальное, опытное и технологичное звено на рынке горно-шахтного оборудования для обогатительных фабрик. У нас работают  высококвалифицированные специалисты с многолетним опытом в сфере переработки полезных ископаемых, а также мы гордимся сотрудничеством с международными институтами нашего дела. Мы не стоим на месте, мы находимся в режиме постоянного развития, улучшения
+                            <p data-translate="company__description" class="company__description">“Наша компания - глобальное, опытное и технологичное звено на рынке горно-шахтного оборудования для обогатительных фабрик. У нас работают  высококвалифицированные специалисты с многолетним опытом в сфере переработки полезных ископаемых, а также мы гордимся сотрудничеством с международными институтами нашего дела. Мы не стоим на месте, мы находимся в режиме постоянного развития, улучшения
                                 и совершенствования. Наша цель - надежно и оперативно обеспечивать наших клиентов оборудованием для успешного производства их продукции!”</p>
                             <div class="company__leader">
                                 <div class="leader__logoContainer">
                                     <img class="leader__logo" src="assets/img/Photo.png" alt="Титов Виталий">
                                 </div>
                                 <div class="leader__description">
-                                    <p class="leader__name">Титов Виталий</p>
-                                    <p class="leader__subtitle">Директор</p>
+                                    <p data-translate="leader__name" class="leader__name">Титов Виталий</p>
+                                    <p data-translate="leader__subtitle" class="leader__subtitle">Директор</p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     <div class="section__footer">
-                        <p class="company__year">Технология и механика © 2023</p>
+                        <p data-translate="company__year" class="company__year">Технология и механика © 2023</p>
                         <div class="scroll-menu">
                             <a class="scroll-page active" href="#">01</a>
                             <a class="scroll-page" href="#">02</a>
@@ -120,17 +133,21 @@
                     </div>
                 </div>
             </section>
-            <section class="engineering swiper-slide">
+            <section id="second" class="engineering swiper-slide">
                 <img src="assets/img/Bg2.png" class="image2">
+                <div class="bg-mobile">
+                    <img src="./assets/img/bg-e-mob.png" alt="">
+                    <div class="bg-e-mix"></div>
+                </div>
                 <div class="container">
                     <div class="engineering__container">
-                    <h1 class="engineering__title">ИНЖИНИРИНГ</h1>
+                    <h1 data-translate="engineering__title" class="engineering__title">ИНЖИНИРИНГ</h1>
                     <div class="section-container">
-                        <h1 class="company__title company__title-engineering">Применение инновационных техник и оборудования
+                        <h1 data-translate="company__title-engineering" class="company__title company__title-engineering">Применение инновационных техник и оборудования
                             в процессах обогащения полезных ископаемых позволяет достигать потрясающих результатов!</h1>
-                        <p class="engineering__description">Главное в этом деле - это правильно подобрать оборудование и провести точный расчет для получения высококачественного концентрата. Но не переживайте, наши технологи прекрасно знают свое дело!
+                        <p data-translate="engineering__description-1" class="engineering__description">Главное в этом деле - это правильно подобрать оборудование и провести точный расчет для получения высококачественного концентрата. Но не переживайте, наши технологи прекрасно знают свое дело!
                             Они имеют колоссальный опыт в обогащении углей разных марок, который подкреплен международным опытом и практикой работы на обогатительных фабриках на протяжении 10 лет.</p>
-                        <p class="engineering__description">Кроме того, наша компания готова предложить численные решения и техническую экспертизу, чтобы обеспечить максимальную эффективность и надежность в технологических процессах. Автоматизация процессов также является нашей сильной стороной, что позволяет нам обеспечить более точный контроль и высокую точность в работе. В целом, мы прекрасно знаем, как создать идеальную систему обогащения полезных ископаемых для наших партнеров.</p>
+                        <p data-translate="engineering__description-2" class="engineering__description">Кроме того, наша компания готова предложить численные решения и техническую экспертизу, чтобы обеспечить максимальную эффективность и надежность в технологических процессах. Автоматизация процессов также является нашей сильной стороной, что позволяет нам обеспечить более точный контроль и высокую точность в работе. В целом, мы прекрасно знаем, как создать идеальную систему обогащения полезных ископаемых для наших партнеров.</p>
                     </div>
                     <div class="plan-img">
 
@@ -140,7 +157,7 @@
                     </div>
 
                     <div class="section__footer">
-                        <p class="company__year">Технология и механика © 2023</p>
+                        <p data-translate="company__year" class="company__year">Технология и механика © 2023</p>
                         <div class="scroll-menu">
                             <a class="scroll-page" href="#">01</a>
                             <a class="scroll-page active" href="#">02</a>
@@ -154,7 +171,7 @@
                     </div>
                 </div>
             </section>
-            <section class="equipment swiper-slide">
+            <section id="third" class="equipment swiper-slide">
 <!--                <div class="equipment-white"></div>-->
                 <div class="equipment-bg"></div>
                 <div class="equipment-img">
@@ -162,17 +179,17 @@
                 </div>
                 <div class="container ">
 
-                    <h1 class="equipment__title">оборудование</h1>
+                    <h1 data-translate="equipment__title" class="equipment__title">оборудование</h1>
 
                     <div class="equipment__section">
                         <div class="equipment__main">
-                            <p class="equipment__description active">В настоящее время мы открыты для сотрудничества с теми, кто ищет самые надежные и эффективные технологические решения для обогащения полезных ископаемых. У нас есть масса высококачественного оборудования для различных технологических процессов, включая такие сложные и точные методы, как классификация и флотация.</p>
-                            <p class="equipment__description">Наши мощности находятся по всей России, и мы можем предложить собственное производство, а также оборудование от наших партнеров из Китая и Индии. Конечно, мы сделали все возможное, чтобы обеспечить надежность и эффективность нашего оборудования, и мы рады поделиться этим с нашими партнерами. Будьте уверены, что у нас есть все, что нужно для того, чтобы помочь вам в решении любых технологических задач!</p>
+                            <p data-translate="equipment__description-1" class="equipment__description active">В настоящее время мы открыты для сотрудничества с теми, кто ищет самые надежные и эффективные технологические решения для обогащения полезных ископаемых. У нас есть масса высококачественного оборудования для различных технологических процессов, включая такие сложные и точные методы, как классификация и флотация.</p>
+                            <p data-translate="equipment__description-2" class="equipment__description">Наши мощности находятся по всей России, и мы можем предложить собственное производство, а также оборудование от наших партнеров из Китая и Индии. Конечно, мы сделали все возможное, чтобы обеспечить надежность и эффективность нашего оборудования, и мы рады поделиться этим с нашими партнерами. Будьте уверены, что у нас есть все, что нужно для того, чтобы помочь вам в решении любых технологических задач!</p>
                             <div class="equipment__link">
-                                <h3 class="equipment__link__title">Презентация основного оборудования:</h3>
+                                <h3 data-translate="equipment__link__title" class="equipment__link__title">Презентация основного оборудования:</h3>
                             </div>
                             <button onclick="downloadFile()" class="download">
-                                <span>скачать</span>
+                                <span data-translate="download">скачать</span>
                             </button>
                         </div>
                         <div class="swiper">
@@ -263,7 +280,7 @@
 
 
                     <div class="section__footer">
-                        <p class="company__year">Технология и механика © 2023</p>
+                        <p data-translate="company__year" class="company__year">Технология и механика © 2023</p>
                         <div class="scroll-menu">
                             <a class="scroll-page" href="#">01</a>
                             <a class="scroll-page" href="#">02</a>
@@ -276,14 +293,18 @@
                     </div>
                 </div>
             </section>
-            <section class="social swiper-slide">
+            <section id="forth" class="social swiper-slide">
+                <div style="display: none"></div>
                 <img src="assets/img/bg-social.png" class="social-bg">
                 <div class="social-container">
                     <div class="social-logo-container">
                         <img src="assets/img/social-logo.png" alt="">
                     </div>
+                    <div class="social-logo-container-mob">
+                        <img src="assets/img/logo-soc-mob.png" alt="">
+                    </div>
                     <div class="social-info">
-                        <div class="social__address">630051, Российская Федерация,
+                        <div data-translate="social__address" class="social__address">630051, Российская Федерация,
                             Новосибирск, ул. Ползунова, 3В,
                             офис 201
                         </div>
@@ -317,7 +338,7 @@
 
                 </div>
                 <div class="section__footer">
-                    <p class="company__year">Технология и механика © 2023</p>
+                    <p data-translate="company__year" class="company__year">Технология и механика © 2023</p>
                     <div class="scroll-menu">
                         <a class="scroll-page" href="#">01</a>
                         <a class="scroll-page" href="#">02</a>
@@ -326,6 +347,9 @@
                     </div>
                     <div class="company__madeContainer">
                         <img src="assets/img/Ru.png">
+                    </div>
+                    <div class="company__madeContainer-mob">
+                        <img src="assets/img/Ru-mob.png">
                     </div>
                 </div>
             </section>
