@@ -264,8 +264,6 @@ let darknessStart = () => {
 }
 
 let initDarkness = () => {
-    let darkness = document.querySelectorAll(".text-slider .swiper-slide");
-
 
     swiper.on('slideChange', () => {
         darknessStart();
