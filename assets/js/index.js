@@ -108,11 +108,29 @@ let swiperMain;
 function initSwiper() {
     let screenWidth = window.innerWidth;
 
-    if (screenWidth > 1280 && !swiperMain) { // инициализируем swiper только на широких экранах
+    if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
-            // настройки swiper
+            on: {
+                slideChange: function() {
+
+
+                    const activeSlideIndex = this.activeIndex;
+                    const text = document.querySelector('.equipment__title');
+                    const textFirst = document.querySelector('.engineering__title');
+                    if (textFirst && activeSlideIndex === 1) {
+                        textFirst.classList.add('animate__animated');
+                    } else if (textFirst) {
+                        textFirst.classList.remove('animate__animated');
+                    }
+                    if (text && activeSlideIndex === 2) {
+                        text.classList.add('animate__animated');
+                    } else if (text) {
+                        text.classList.remove('animate__animated');
+                    }
+                }
+            }
         });
-    } else if (screenWidth <= 1280 && swiperMain) { // уничтожаем swiper на узких экранах, если он уже был инициализирован
+    } else if (screenWidth <= 1280 && swiperMain) {
         swiperMain.destroy();
         swiperMain = undefined;
     }
@@ -128,6 +146,7 @@ initSwiper();
 if(swiperMain) {
     swiperMain.on('slideChange', function () {
         let header = document.querySelector(".header");
+        let headerNav = document.querySelectorAll(".header__nav .nav__link ");
         let activeSlide = swiperMain.activeIndex;
 
         header.className = '';
@@ -140,6 +159,14 @@ if(swiperMain) {
         }else if(activeSlide == 3) {
             header.classList.add("header--fourth");
         };
+
+
+        console.log(headerNav);
+        headerNav.forEach((el) => {
+            el.classList.remove("active");
+        })
+
+        headerNav[activeSlide].classList.add("active");
 
         swiperDotsChangeActive(activeSlide);
     });

@@ -139,6 +139,33 @@ h1, h2, h3, h4, h5, h6,li,ol {
     background-color: #41A99E;
     margin-top: 13px;
     transform: skew(-30deg);
+    animation: bar-appear 2s forwards;
+}
+
+.animate__animated {
+    animation-duration: 1s;
+    animation-name: slideInLeft;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes bar-appear {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 72px;
+    }
 }
 
 .a123 {
@@ -419,6 +446,10 @@ leader__logoContainer {
     letter-spacing: 1px;
 }
 
+.swiper {
+    width: 52%;
+}
+
 .scroll-menu {
     display: flex;
 }
@@ -590,7 +621,8 @@ leader__logoContainer {
 
 .equipment-bg {
     position: fixed;
-    width: 698px;
+    /*width: 38.5%;*/
+    width: 36vw;
     height: 100%;
 
     z-index: -2;
@@ -611,11 +643,16 @@ leader__logoContainer {
     overflow: hidden;
 }
 
+.equipment__container {
+    margin-left: 2.1%;
+    margin-top: 9.6%;
+    height: 100%;
+    width: 100%;
+}
+
 .equipment__title {
     text-transform: uppercase;
     letter-spacing: 7.2px;
-    margin-top: 9%;
-    margin-left: -0.45%;
     font-style: normal;
     font-weight: 625;
     font-size: 160px;
@@ -624,14 +661,14 @@ leader__logoContainer {
 }
 
 .equipment__section {
-    margin-left: 15.2%;
+
     display: flex;
-    margin-top: 0.6%;
+    justify-content: space-between;
 }
 
 .equipment__main {
-    width: 635px;
-    margin-right: 2%;
+    width: 48%;
+
 }
 
 .equipment__description {
@@ -643,6 +680,14 @@ leader__logoContainer {
     font-size: 18px;
     line-height: 152.69%;
     color: #00182C;
+
+    margin-left: 30%;
+    padding-right: 2%;
+    margin-top: 2%;
+}
+
+.equipment__download {
+    margin-left: 30%;
 }
 
 
@@ -726,6 +771,10 @@ leader__logoContainer {
 .image-slider {
     width: 631px;
     height: 469px;
+}
+
+.image-slider {
+    margin-left: 0;
 }
 
 .swiper-img-container {
@@ -820,7 +869,8 @@ leader__logoContainer {
 }
 
 .swiper-text {
-    margin-left: 64.3%;
+    margin-left: auto;
+    width: 38.1vw;
 }
 
 
@@ -843,7 +893,7 @@ leader__logoContainer {
 }
 
 .text-slider {
-    width: 697px;
+
     background-color: #364685;
 }
 
@@ -1016,6 +1066,7 @@ leader__logoContainer {
 .swiper--main section.swiper-slide {
     position: relative;
     height: 100vh;
+    overflow: hidden;
 }
 
 
