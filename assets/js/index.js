@@ -108,11 +108,11 @@ let swiperMain;
 function initSwiper() {
     let screenWidth = window.innerWidth;
 
-    if (screenWidth > 768 && !swiperMain) { // инициализируем swiper только на широких экранах
+    if (screenWidth > 1280 && !swiperMain) { // инициализируем swiper только на широких экранах
         swiperMain = new Swiper('.swiper--main', {
             // настройки swiper
         });
-    } else if (screenWidth <= 768 && swiperMain) { // уничтожаем swiper на узких экранах, если он уже был инициализирован
+    } else if (screenWidth <= 1280 && swiperMain) { // уничтожаем swiper на узких экранах, если он уже был инициализирован
         swiperMain.destroy();
         swiperMain = undefined;
     }
@@ -339,5 +339,11 @@ let initDarkness = () => {
 initDarkness();
 
 
+const navLinks = document.querySelectorAll('.nav__link');
+const headerSecond = document.querySelector('.header--second');
+const secondLink = navLinks[1];
 
+if (secondLink.classList.contains('active')) {
+    headerSecond.style.opacity = '0.9';
+}
 

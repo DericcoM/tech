@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6,li,ol {
 
 .header--second {
     object-fit: cover;
-    background: #00182C;
+    background-color: rgba(0, 24, 44, 0.7);
 }
 
 .header__inner {
@@ -216,10 +216,9 @@ h1, h2, h3, h4, h5, h6,li,ol {
 .image-right {
     z-index: -1;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 1416px;
-    top: -120px;
+
+    right: 0%;
+    top: -10%;
 }
 
 .image-left{
@@ -468,20 +467,42 @@ leader__logoContainer {
     height: 100%;
 }
 
-.engineering {
+.container--engineering {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 3%;
+    height: 100%;
+}
+
+.engineering__container {
+    background: #41A99E;
+    opacity: 0.9;
+    width: 84%;
+    height: 70%;
+
+    position: relative;
+}
+
+.engineering__text {
+    margin-left: 10%;
+    padding-top: 3%;
 }
 
 
 .engineering__title {
     text-transform: uppercase;
     letter-spacing: 4px;
-    margin-top: 12.35%;
     margin-left: -0.45%;
     font-style: normal;
     font-weight: 625;
     font-size: 160px;
     line-height: 188px;
     color: #ffffff;
+
+    position: absolute;
+    top: 0;
+    left: -17%;
 }
 
 .company__title-engineering {
@@ -518,14 +539,23 @@ leader__logoContainer {
 
 .engineering__container {
     display: flex;
-    justify-content: end;
     align-items: end;
     flex-direction: column;
+    justify-content: center;
 }
 
 .plan-img {
+    width: 50%;
+    height: 40%;
+
     position: fixed;
-    padding-bottom: 2%;
+    bottom: 0;
+}
+
+.plan-svg {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .engineering .section__footer {
@@ -983,8 +1013,9 @@ leader__logoContainer {
     background-color: transparent;
 }
 
-.swiper--main .swiper-slide {
+.swiper--main section.swiper-slide {
     position: relative;
+    height: 100vh;
 }
 
 
@@ -1013,8 +1044,15 @@ leader__logoContainer {
     display: none;
 }
 
+@media (max-width: 1480px) {
+
+    .engineering__text {
+        margin-left: 10%;
+        padding-top: 10%;
+    }
+}
 /* Media Query */
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
 
     /*body {
         overflow-x: hidden;
