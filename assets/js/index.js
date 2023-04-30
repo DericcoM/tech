@@ -1,3 +1,48 @@
+
+let headerInner = document.querySelector('.header__inner');
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    menu.classList.toggle('open');
+
+    if (menu.classList.contains('open')) {
+        headerInner.style.height = '+200px';
+        menu.style.display = 'flex'; // добавляем правило display: block
+    } else {
+        headerInner.style.height = '64px';
+        menu.style.display = 'none'; // скрываем меню
+    }
+});
+
+// выбираем нужные элементы
+const menuToggleScroll = document.querySelector('.menu-toggle');
+const menuScroll = document.querySelector('.menu');
+const menuLinks = menu.querySelectorAll('a[href^="#"]');
+
+// обработчик клика на ссылке в меню
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // отменяем стандартное поведение ссылки
+        const targetId = link.getAttribute('href'); // получаем id целевого элемента
+        const targetElement = document.querySelector(targetId); // получаем целевой элемент
+
+        // скрываем меню и удаляем класс 'open' после клика
+        menuToggleScroll.classList.remove('open');
+        menuScroll.classList.remove('open');
+        headerInner.style.height = '64px';
+        menu.style.display = 'none';
+
+        // плавно скроллим до целевого элемента
+        targetElement.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+
 const languageButtons = document.querySelectorAll(".language");
 
 languageButtons.forEach((button) => {
@@ -42,7 +87,7 @@ const download = document.querySelectorAll(".download");
 
 download.forEach( (button)=> {
     button.addEventListener("click", () => {
-        let fileUrl = "assets/downFIle.pdf"
+        let fileUrl = "./assets/downFIle.pdf"
         let link = document.createElement("a");
 
         link.setAttribute("href", fileUrl);
@@ -58,34 +103,48 @@ download.forEach( (button)=> {
 });
 
 
-let swiperMain = new Swiper(".swiper--main", {
-    spaceBetween: 0,
-    slidesPerView: 1,
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        hide: false,
-    },
+let swiperMain;
 
+function initSwiper() {
+    let screenWidth = window.innerWidth;
+
+    if (screenWidth > 768 && !swiperMain) { // инициализируем swiper только на широких экранах
+        swiperMain = new Swiper('.swiper--main', {
+            // настройки swiper
+        });
+    } else if (screenWidth <= 768 && swiperMain) { // уничтожаем swiper на узких экранах, если он уже был инициализирован
+        swiperMain.destroy();
+        swiperMain = undefined;
+    }
+
+}
+
+window.addEventListener('resize', function() {
+    initSwiper();
 });
 
+initSwiper();
 
-swiperMain.on('slideChange', function () {
-    let header = document.querySelector(".header");
-    let activeSlide = swiperMain.activeIndex;
+if(swiperMain) {
+    swiperMain.on('slideChange', function () {
+        let header = document.querySelector(".header");
+        let activeSlide = swiperMain.activeIndex;
 
-    header.className = '';
-    header.classList.add("header");
+        header.className = '';
+        header.classList.add("header");
 
-    if(activeSlide == 1) {
-        header.classList.add("header--second");
-    }else if(activeSlide == 2) {
-        header.classList.add("header--third");
-    }else if(activeSlide == 3) {
-        header.classList.add("header--fourth");
-    };
+        if(activeSlide == 1) {
+            header.classList.add("header--second");
+        }else if(activeSlide == 2) {
+            header.classList.add("header--third");
+        }else if(activeSlide == 3) {
+            header.classList.add("header--fourth");
+        };
 
-    swiperDotsChangeActive(activeSlide);
-});
+        swiperDotsChangeActive(activeSlide);
+    });
+}
+
 
 // получаем элемент swiper-wrapper
 var wrapper = document.querySelector('.swiper--main .swiper-wrapper');
@@ -130,7 +189,7 @@ var swiper = new Swiper(".text-slider", {
     }
 });
 var swiper2 = new Swiper(".image-slider", {
-
+    spaceBetween: 10,
 
     on: {
         slideChange: function () {
@@ -184,7 +243,7 @@ pagination.forEach(function (slide, index) {
 });
 
 let initNav = () => {
-    let navLinks = document.querySelectorAll(".nav__link");
+    let navLinks = document.querySelectorAll(".header__main .nav__link");
     let navLinksArr =  Array.from(navLinks);
 
     navLinks.forEach((el) => {
@@ -193,7 +252,6 @@ let initNav = () => {
                 link.classList.remove("active");
             })
             e.target.classList.add("active");
-
 
             swiperMain.slideTo(navLinksArr.indexOf(e.target))
         })
