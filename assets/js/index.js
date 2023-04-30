@@ -1,3 +1,48 @@
+
+let headerInner = document.querySelector('.header__inner');
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    menu.classList.toggle('open');
+
+    if (menu.classList.contains('open')) {
+        headerInner.style.height = '+200px';
+        menu.style.display = 'flex'; // добавляем правило display: block
+    } else {
+        headerInner.style.height = '64px';
+        menu.style.display = 'none'; // скрываем меню
+    }
+});
+
+// выбираем нужные элементы
+const menuToggleScroll = document.querySelector('.menu-toggle');
+const menuScroll = document.querySelector('.menu');
+const menuLinks = menu.querySelectorAll('a[href^="#"]');
+
+// обработчик клика на ссылке в меню
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // отменяем стандартное поведение ссылки
+        const targetId = link.getAttribute('href'); // получаем id целевого элемента
+        const targetElement = document.querySelector(targetId); // получаем целевой элемент
+
+        // скрываем меню и удаляем класс 'open' после клика
+        menuToggleScroll.classList.remove('open');
+        menuScroll.classList.remove('open');
+        headerInner.style.height = '64px';
+        menu.style.display = 'none';
+
+        // плавно скроллим до целевого элемента
+        targetElement.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+
 const languageButtons = document.querySelectorAll(".language");
 
 languageButtons.forEach((button) => {
@@ -57,32 +102,44 @@ download.forEach( (button)=> {
     });
 });
 
+if (window.innerWidth > 768) {
+    let swiperMain = new Swiper(".swiper--main", {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            hide: false,
+        },
+})};
 
-let swiperMain = new Swiper(".swiper--main", {
-    spaceBetween: 0,
-    slidesPerView: 1,
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        hide: false,
-    },
-
-});
 
 
-swiperMain.on('slideChange', function () {
-    let header = document.querySelector(".header");
-    let activeSlide = swiperMain.activeIndex;
+function checkScreenWidth() {
+    if (window.innerWidth < 768) {
+        swiperMain.destroy();
+    } else {
+        swiperMain.init();
+    }
+}
 
-    header.className = '';
-    header.classList.add("header");
+window.addEventListener('resize', checkScreenWidth);
 
-    if(activeSlide == 1) {
-        header.classList.add("header--second");
-    }else if(activeSlide == 2) {
-        header.classList.add("header--third");
-    }else if(activeSlide == 3) {
-        header.classList.add("header--fourth");
-    };
+if (window.innerWidth > 768) {
+    swiperMain.on('slideChange', function () {
+        let header = document.querySelector(".header");
+        let activeSlide = swiperMain.activeIndex;
+
+        header.className = '';
+        header.classList.add("header");
+
+        if (activeSlide == 1) {
+            header.classList.add("header--second");
+        } else if (activeSlide == 2) {
+            header.classList.add("header--third");
+        } else if (activeSlide == 3) {
+            header.classList.add("header--fourth");
+        }
+        ;
 
     swiperDotsChangeActive(activeSlide);
 });
@@ -104,6 +161,7 @@ wrapper.addEventListener('wheel', function(e) {
         swiperMain.slidePrev();
     }
 });
+}
 
 
 var swiper = new Swiper(".text-slider", {
@@ -279,7 +337,4 @@ let initDarkness = () => {
 
 
 initDarkness();
-
-
-
 
