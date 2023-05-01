@@ -937,13 +937,15 @@ leader__logoContainer {
 }
 
 .social-container {
+    height: 80%;
     margin-top: 13.5%;
-    margin-left: 31.8%;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .social-logo-container {
-    margin-left: 8%;
     padding-top: 1%;
     width: 100%;
     height: 100%;
@@ -958,7 +960,7 @@ leader__logoContainer {
 .social-info {
     margin-top: 8%;
     display: flex;
-    margin-bottom: 14%;
+    justify-content: center;
 }
 
 .social__address {
@@ -1042,12 +1044,19 @@ leader__logoContainer {
 }
 
 .social__group {
-    margin-left: 21.5%;
+    height: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .social__group a {
-    padding-right: 1.7%;
+    margin-right: 20px;
 }
+
+.social__group a:last-child {
+    margin-right: 0;
+}
+
 
 .social .section__footer {
     width: 100%;
@@ -2320,5 +2329,21 @@ leader__logoContainer {
     .social-logo-container-mob {
         display: block;
         margin-left: -35%;
+    }
+}
+
+
+@media (max-height: 940px) {
+    .social__group {
+        margin-left: 26.5%;
+    }
+
+    .social-info {
+        margin-bottom: 8%;
+    }
+
+
+    .engineering__text {
+        padding-top: 9%;
     }
 }
