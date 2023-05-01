@@ -110,6 +110,7 @@ function initSwiper() {
 
     if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
+            simulateTouch: false,
             on: {
                 slideChange: function() {
 
@@ -206,8 +207,8 @@ var swiper = new Swiper(".text-slider", {
             var activeSlide = this.slides[this.activeIndex];
             var activeSlideOffsetLeft = activeSlide.offsetLeft;
             let newOffset = activeSlideOffsetLeft / 2 * (-1);
-            if(newOffset < -150) {
-                newOffset = -150;
+            if(newOffset < -200) {
+                newOffset = -200;
             } else if(newOffset > 0) {
                 newOffset = 0;
             }
