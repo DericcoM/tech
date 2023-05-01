@@ -1710,6 +1710,14 @@ leader__logoContainer {
         line-height: 0px;
     }
 
+    .image-slider .swiper-wrapper {
+        flex-direction: row;
+    }
+
+    .text-slider .swiper-wrapper {
+        flex-direction: row;
+    }
+
 }
 
 @media (max-width: 1080px) {
