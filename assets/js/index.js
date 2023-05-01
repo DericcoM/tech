@@ -16,7 +16,6 @@ menuToggle.addEventListener('click', () => {
     }
 });
 
-// выбираем нужные элементы
 const menuToggleScroll = document.querySelector('.menu-toggle');
 const menuScroll = document.querySelector('.menu');
 const menuLinks = menu.querySelectorAll('a[href^="#"]');
@@ -28,18 +27,27 @@ menuLinks.forEach(link => {
         const targetId = link.getAttribute('href'); // получаем id целевого элемента
         const targetElement = document.querySelector(targetId); // получаем целевой элемент
 
-        // скрываем меню и удаляем класс 'open' после клика
+// вычисляем смещение относительно верхней части страницы
+        const offset = 140; // задаем необходимый отступ
+        const rect = targetElement.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetTop = rect.top + scrollTop - offset;
+
+// скрываем меню и удаляем класс 'open' после клика
         menuToggleScroll.classList.remove('open');
         menuScroll.classList.remove('open');
         headerInner.style.height = '64px';
         menu.style.display = 'none';
 
-        // плавно скроллим до целевого элемента
-        targetElement.scrollIntoView({
+// плавно скроллим до целевого элемента с учетом отступа
+        window.scrollTo({
+            top: targetTop,
             behavior: 'smooth'
         });
     });
 });
+
+
 
 
 
@@ -123,10 +131,14 @@ function initSwiper() {
 
     if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
-            simulateTouch: false,
+            touchEventsTarget: "wrapper",
+            simulateTouch: true,
+            touchRatio: 1,
+            speed: 1000,
             autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
+                delay: 5000,
+                disableOnInteraction: true,
+                waitForTransition: true,
             },
             on: {
                 slideChange: function() {
@@ -195,7 +207,9 @@ function initSwiper() {
         });
         var swiper2 = new Swiper(".image-slider", {
             spaceBetween: 10,
-
+            simulateTouch: true,
+            touchRatio: 0.5,
+            speed: 1000,
             on: {
                 slideChange: function () {
                     darknessStart(this.activeIndex);
