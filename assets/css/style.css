@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6,li,ol {
     height: 100vh;
 }
 
-#second {
+#first {
     overflow: hidden;
 }
 
@@ -1359,7 +1359,7 @@ leader__logoContainer {
 
     body {
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: scroll;
     }
 
     .equipment__section .swiper {
@@ -2020,10 +2020,9 @@ leader__logoContainer {
     .soc-mob-footer {
         margin-left: -11%;
 }
-
-.social-bg {
-    height: 18%;
-}
+    .social-bg {
+    height: 15%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2108,10 +2107,6 @@ leader__logoContainer {
         margin-top: 7%;
     }
 
-    .equipment__title {
-        margin-top: -8%;
-        margin-left: 8%;
-    }
     .equipment__link__title {
         margin-left: 28%;
     }
@@ -2136,7 +2131,8 @@ leader__logoContainer {
 
     .soc-mob-footer {
         width: 100%;
-        margin-left: -22%;
+        margin-left: 30%;
+        margin-bottom: 5%;
     }
 }
 
@@ -2156,6 +2152,13 @@ leader__logoContainer {
         left: 36%;
     }
 
+
+
+    .nav__link:not(:last-child) {
+       margin-right: 0%;
+    }
+
+
     .company__subtitle {
         width: 74%;
     }
@@ -2164,6 +2167,7 @@ leader__logoContainer {
         width: 95%;
     }
     .engineering__title {
+        margin-top: 3%;
         margin-left: 25%;
     }
 
@@ -2182,8 +2186,8 @@ leader__logoContainer {
     }
 
     .equipment__title {
-        margin-top: -10%;
-        margin-left: 5%;
+        margin-top: -6%;
+        margin-left: 8%;
     }
 
     .image-slider {
@@ -2341,8 +2345,41 @@ leader__logoContainer {
         margin-bottom: 8%;
     }
 
+    .engineering__text {
+        padding-top: 9%;
+    }
+}
+
+
+@media (max-height: 940px) {
+    .social__group {
+        margin-left: -37.5%;
+    }
+
+    .social-info {
+        margin-bottom: 8%;
+    }
+
 
     .engineering__text {
         padding-top: 9%;
+    }
+}
+
+@media (max-height: 1032px) {
+
+    .social-info {
+        margin-bottom: 0%;
+    }
+    .social__group {
+        margin-left: 2%;
+        margin-top: 50px;
+    }
+}
+
+@media (max-height: 1032px) and (max-width: 430px) {
+    .social__group {
+        margin-left: -35%;
+        margin-top: 50px;
     }
 }

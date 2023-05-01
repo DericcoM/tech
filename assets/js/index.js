@@ -124,6 +124,10 @@ function initSwiper() {
     if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
             simulateTouch: false,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
             on: {
                 slideChange: function() {
 
