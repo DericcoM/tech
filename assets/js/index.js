@@ -85,22 +85,7 @@ function loadTranslations(lang, callback) {
 
 const download = document.querySelectorAll(".download");
 
-download.forEach( (button)=> {
-    button.addEventListener("click", () => {
-        let fileUrl = "./assets/downFIle.pdf"
-        let link = document.createElement("a");
 
-        link.setAttribute("href", fileUrl);
-        link.setAttribute("download", "downFile.pdf");
-
-        link.style.display = "none";
-
-        document.body.appendChild(link);
-
-        link.click();
-        document.body.removeChild(link);
-    });
-});
 
 let swiperMain;
 var swiper;
@@ -228,10 +213,40 @@ function initSwiper() {
             }
         });
         darknessStart(0);
-    } else if (screenWidth <= 1280) {
+    } else if (screenWidth <= 1280 && screenWidth > 1024) {
         var swiper = new Swiper(".text-slider", {
             spaceBetween: 10,
-            slidesPerView: 1,
+            slidesPerView: 2,
+            navigation: {
+                nextEl: ".next-text",
+                prevEl: ".prev-text",
+            },
+            watchSlidesProgress: true,
+            on: {
+                slideChange: function () {
+
+                    swiper2.slideTo(this.activeIndex);
+
+                    var wrapper = this.$wrapperEl[0];
+                    var activeSlide = this.slides[this.activeIndex];
+                    var activeSlideOffsetLeft = activeSlide.offsetLeft;
+                    let newOffset = -activeSlideOffsetLeft;
+                    wrapper.style.transform = "translate3d(" + newOffset + "px, 0px, 0px)";
+                }
+            }
+        });
+        var swiper2 = new Swiper(".image-slider", {
+            spaceBetween: 18,
+            slidesPerView: 2,
+            on: {
+                slideChange: function () {
+                    swiper.slideTo(this.activeIndex);
+                }
+            }
+        });
+    }else if (screenWidth <= 1024 && screenWidth > 450) {
+        var swiper = new Swiper(".text-slider", {
+            spaceBetween: 10,
             navigation: {
                 nextEl: ".next-text",
                 prevEl: ".prev-text",
@@ -252,7 +267,35 @@ function initSwiper() {
         });
         var swiper2 = new Swiper(".image-slider", {
             spaceBetween: 10,
+            on: {
+                slideChange: function () {
+                    swiper.slideTo(this.activeIndex);
+                }
+            }
+        });
+    }else if (screenWidth <= 450) {
+        var swiper = new Swiper(".text-slider", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".next-text",
+                prevEl: ".prev-text",
+            },
+            watchSlidesProgress: true,
+            on: {
+                slideChange: function () {
 
+                    swiper2.slideTo(this.activeIndex);
+
+                    var wrapper = this.$wrapperEl[0];
+                    var activeSlide = this.slides[this.activeIndex];
+                    var activeSlideOffsetLeft = activeSlide.offsetLeft;
+                    let newOffset = -activeSlideOffsetLeft;
+                    wrapper.style.transform = "translate3d(" + newOffset + "px, 0px, 0px)";
+                }
+            }
+        });
+        var swiper2 = new Swiper(".image-slider", {
+            spaceBetween: 10,
             on: {
                 slideChange: function () {
                     swiper.slideTo(this.activeIndex);
@@ -275,15 +318,18 @@ if(swiperMain) {
     swiperMain.on('slideChange', function () {
         let header = document.querySelector(".header");
         let headerNav = document.querySelectorAll(".header__nav .nav__link ");
+        let footerNav = document.querySelector(".footer__inner");
         let activeSlide = swiperMain.activeIndex;
-
+        footerNav.className = '';
         header.className = '';
         header.classList.add("header");
+        footerNav.classList.add("footer__inner");
 
         if(activeSlide == 1) {
             header.classList.add("header--second");
         }else if(activeSlide == 2) {
             header.classList.add("header--third");
+            footerNav.classList.add("footer--third");
         }else if(activeSlide == 3) {
             header.classList.add("header--fourth");
         };
@@ -406,4 +452,23 @@ const secondLink = navLinks[1];
 if (secondLink.classList.contains('active')) {
     headerSecond.style.opacity = '0.9';
 }
+
+window.addEventListener("resize", saveCurrentSlide);
+
+function saveCurrentSlide() {
+    let currentPosition = swiperMain.realIndex;
+    localStorage.setItem('currentPosition', currentPosition);
+    location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    let savedPosition = localStorage.getItem('currentPosition');
+    if (savedPosition !== null) {
+        swiperMain.slideTo(savedPosition);
+        localStorage.clear();
+    }
+
+
+});
+
 

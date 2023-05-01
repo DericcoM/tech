@@ -1,5 +1,6 @@
 
 body {
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -33,6 +34,10 @@ h1, h2, h3, h4, h5, h6,li,ol {
 .image-container {
     width: 100vw;
     height: 100vh;
+}
+
+#second {
+    overflow: hidden;
 }
 
 .image1 {
@@ -184,6 +189,10 @@ h1, h2, h3, h4, h5, h6,li,ol {
 
 .header--third .header__phone {
     color: #41A99E;
+}
+
+.footer--third .scroll-page:after {
+    background-color: #00182C;
 }
 
 .header__phone {
@@ -732,6 +741,7 @@ leader__logoContainer {
 }
 
 .download {
+    text-decoration: none;
     margin-top: 4%;
     text-transform: uppercase;
     width: 143px;
@@ -1112,6 +1122,7 @@ leader__logoContainer {
 
 @media (max-width: 1920px) {
 
+
     .equipment__container {
 
         margin-top: 4.6%;
@@ -1121,18 +1132,216 @@ leader__logoContainer {
 
 }
 
-@media (max-width: 1480px) {
+@media (max-width: 1480px) and (max-height: 653px ){
 
-    .equipment__container {
+    .container {
+        width: 100%;
+        padding: 24px 40px;
+    }
 
-        margin-top: 9.6%;
+    .company__logo {
+        width: 38%;
+    }
+
+    .company__title {
+        font-size: 25px;
+    }
+
+    .company__title:after {
+        width: 101px;
+        height: 3px;
+        transform: skew(-30deg);
+        margin-top: 1px;
+    }
+
+    .company__prop-img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .company__prop-title {
+        font-size: 18px;
+    }
+
+    .company__inner {
+        display: flex;
+        margin-top: 1.7%;
+    }
+
+    .company__prop-subtitle {
+        font-size: 11px;
+    }
+
+    .company__subtitle {
+        margin-top: 3.4%;
+    }
+
+    .company__description {
+        font-size: 11px;
+    }
+
+    .leader__logo {
+        object-fit: contain;
+        width: 80%;
+        height: 80%;
+    }
+
+    .leader__name {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 0;
+    }
+
+    .leader__subtitle {
+        padding-top: 25px;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 12px;
+        line-height: 0;
+        opacity: 0.75;
+    }
+
+    .leader__description {
+        padding-left: 0px;
+    }
+
+    .company__leader {
+        padding-top: 0.3%;
+    }
+
+    .company__year {
+        font-size: 12px;
+    }
+
+    .company__madeContainer img {
+        object-fit: contain;
+        width: 80%;
+        height: 100%;
+    }
+
+    .scroll-page:after {
+        height: 17px;
+    }
+
+    .section__footer {
+        padding-bottom: 9px;
+    }
+
+    .engineering__title {
+        margin-top: -3%;
+        font-size: 76px;
+    }
+
+    .engineering__description {
+        font-size: 13px;
+    }
+
+    .equipment__section {
+        margin-top: -3%;
+    }
+
+    .engineering__description:not(:last-child) {
+        margin-top: 1%;
+    }
+
+    .plan-img {
+        width: 41%;
+        height: 40%;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .equipment__title {
+        margin-top: -3%;
+        font-size: 76px;
+    }
+
+    .equipment__description {
+        font-size: 13px;
+    }
+    .swiper {
+        width: 45%;
+    }
+
+    .swiper-img-container img {
+        width: 390px;
+        height: 338px;
+    }
+
+    .image-slider {
+        width: 390px;
+        height: 338px;
+    }
+
+    .equipment__title {
+        font-size: 101px;
 
     }
+
+    .swiper__item {
+        font-size: 17px;
+    }
+
+    .text-slider .swiper-wrapper {
+        height: 42px;
+        width: 100px;
+    }
+
+    .text-slider .swiper-slide {
+        height: 41px;
+    }
+
+    .swiper-pagination {
+        margin: 4px 0 0 0;
+    }
+
+    .equipment__container {
+        margin-top: 4.6%;
+    }
+
+    .equipment__link__title {
+        font-size: 17px;
+    }
+
+    .equipment__link__title:before {
+        left: -8%;
+        top: -25%;
+    }
+
+    .equipment__description.active:before {
+        left: -7%;
+        top: -1%;
+    }
+
+    .download {
+        width: 103px;
+        height: 26px;
+        font-size: 13px;
+        margin-top: 2%;
+    }
+
+    .social-container {
+        margin-top: 5.5%;
+        margin-left: 31.8%;
+    }
+
+    .social-info {
+        margin-top: 8%;
+        display: flex;
+        margin-bottom: 5%;
+    }
+
+
+}
+
+@media (max-width: 1480px) {
+
 
 
     .engineering__text {
         margin-left: 10%;
-        padding-top: 10%;
+        padding-top: 8%;
     }
 }
 
@@ -1140,9 +1349,14 @@ leader__logoContainer {
 /* Media Query */
 @media (max-width: 1280px) {
 
-    /*body {
+    body {
         overflow-x: hidden;
-    }*/
+        overflow-y: auto;
+    }
+
+    .equipment__section .swiper {
+        width: 100%;
+    }
 
     .header__inner {
         transition: height 0.3s ease-in-out;
@@ -1490,8 +1704,8 @@ leader__logoContainer {
     }
 
     .equipment__main {
-        width: 100%;
-        margin-left: -8%;
+        width: 100vw;
+        margin-left: 0%;
         order: 2;
     }
 
@@ -1521,7 +1735,7 @@ leader__logoContainer {
         cursor: pointer;
         z-index: 12222;
         position: absolute;
-        top: 28%;
+        top: 35%;
         left: 2%;
         content: "";
         display: inline-block;
@@ -1536,7 +1750,7 @@ leader__logoContainer {
         cursor: pointer;
         z-index: 12222;
         position: absolute;
-        top: 28%;
+        top: 35%;
         right: 2%;
         content: "";
         display: revert;
@@ -1554,13 +1768,22 @@ leader__logoContainer {
         color: #00182C;
         padding-bottom: 3%;
         padding-left: 4%;
-        margin-right: -2%;
+        margin-right: 0%;
         padding-right: 1%;
     }
 
     .equipment__description.active {
         padding-top: 5%;
         margin-bottom: -1%;
+    }
+
+    .equipment__container {
+        margin-left: 0%;
+    }
+
+    .image-slider {
+        width: 1280px;
+        height: 469px;
     }
 
     .equipment__description.active:before {
@@ -1728,6 +1951,20 @@ leader__logoContainer {
 }
 
 @media (max-width: 1024px) {
+
+    .equipment__title {
+        margin-top: -11%;
+    }
+
+    .image-slider {
+        width: 100vw;
+        height: 469px;
+    }
+
+    .image-slider .swiper-slide {
+        padding-left: 21%;
+    }
+
     .company__inner {
         padding: 4% 6%;
     }
@@ -1737,10 +1974,14 @@ leader__logoContainer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
 
     .image-slider {
-        width: 390px;
+        width: 100vw;
+    }
+
+    .image-slider .swiper-slide {
+        padding-left: 13%;
     }
 
 
@@ -1775,6 +2016,28 @@ leader__logoContainer {
 .social-bg {
     height: 18%;
 }
+}
+
+@media (max-width: 768px) {
+    .image-slider .swiper-slide {
+        padding-left: 9%;
+    }
+
+    .equipment__title {
+        margin-left: 29%;
+        margin-top: -11%;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .image-slider .swiper-slide {
+        padding-left: 0%;
+    }
+
+    .equipment__title {
+        margin-left: 15%;
+    }
 }
 
 @media (max-width: 425px) {
@@ -1847,6 +2110,7 @@ leader__logoContainer {
 
     .download {
         margin-left: 29%;
+        text-decoration: none;
     }
 
     .image-slider {
@@ -1869,6 +2133,21 @@ leader__logoContainer {
 }
 
 @media (max-width: 425px) {
+
+    .language-switch {
+        top: 2.5%;
+    }
+
+    .menu-toggle {
+        top: 3%;
+        right: 7%;
+    }
+
+    .menu.open {
+        top: 7%;
+        left: 36%;
+    }
+
     .company__subtitle {
         width: 74%;
     }
@@ -1877,16 +2156,169 @@ leader__logoContainer {
         width: 95%;
     }
     .engineering__title {
-        margin-left: 22%;
+        margin-left: 25%;
     }
 
     .engineering__container {
         width: 100%;
-        height: 750px;
+        height: 662px;
     }
 
     .company__title-engineering {
         width: 90%;
         margin-top: 5%;
+    }
+
+    .swiper {
+        width: 100%;
+    }
+
+    .equipment__title {
+        margin-top: -10%;
+        margin-left: 5%;
+    }
+
+    .image-slider {
+        width: 100vw;
+    }
+
+    .equipment__container {
+        margin-left: 0;
+    }
+
+    .swiper-img-container img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+    }
+    .text-slider .swiper-slide {
+        margin: 0;
+    }
+
+    .equipment__description {
+        margin-right: 0%;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+    .company__prop-title {
+        margin: 7% 0 0 -15%;
+    }
+
+    .engineering__title {
+        margin-left: 21%;
+    }
+
+    .company__title-engineering {
+        width: 90%;
+        margin-top: 4%;
+    }
+
+    .equipment__title {
+        margin-top: -10%;
+        margin-left: 4%;
+    }
+
+    .engineering__container {
+        width: 100%;
+        height: 720px;
+    }
+
+    .equipment__main {
+        width: 100vw;
+        margin-left: 0%;
+        order: 2;
+    }
+
+    .social-bg {
+        height: 14%;
+    }
+
+    .image-slider {
+        width: 100vw;
+    }
+    .text-slider .swiper-slide {
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .engineering__container {
+        width: 100%;
+        height: 831px;
+    }
+
+    .engineering__title {
+        font-size: 34px;
+    }
+
+    .company__inner {
+        height: 854px;
+        padding: 20% 0 0 15%;
+    }
+
+    .company__prop-subtitle {
+        font-style: normal;
+        font-weight: 200;
+        font-size: 12px;
+        line-height: 152.69%;
+    }
+
+    .menu.open {
+        top: 10%;
+        left: 30%;
+    }
+
+    .language-switch {
+        top: 3.5%;
+    }
+
+    .menu-toggle {
+        top: 4%;
+        right: 7%;
+    }
+
+    .company__title {
+        width: 57%;
+    }
+
+    .company__subtitle {
+        width: 73%;
+    }
+
+    .image1 {
+        height: 621px;
+    }
+
+    .company__title {
+        width: 94%;
+    }
+
+    .equipment__title {
+        font-size: 34px;
+        margin-left: 4%;
+    }
+
+    .image-slider {
+        width: 320px;
+    }
+
+    .text-slider .swiper-slide {
+        margin: 0;
+    }
+
+    .social-logo-container-mob {
+        display: block;
+        margin-left: -35%;
     }
 }
