@@ -1,4 +1,3 @@
-
 let headerInner = document.querySelector('.header__inner');
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
@@ -48,9 +47,6 @@ menuLinks.forEach(link => {
 });
 
 
-
-
-
 const languageButtons = document.querySelectorAll(".language");
 
 languageButtons.forEach((button) => {
@@ -66,8 +62,8 @@ languageButtons.forEach((button) => {
 
 function switchLanguage(lang) {
     const elements = document.querySelectorAll('[data-translate]');
-    loadTranslations(lang, function(translations) {
-        elements.forEach(function(element) {
+    loadTranslations(lang, function (translations) {
+        elements.forEach(function (element) {
             const key = element.dataset.translate;
             element.style.opacity = 0;
             setTimeout(() => {
@@ -81,7 +77,7 @@ function switchLanguage(lang) {
 function loadTranslations(lang, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', './assets/lang.json');
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.status === 200) {
             const translations = JSON.parse(xhr.responseText);
             const langTranslations = translations[lang];
@@ -94,7 +90,6 @@ function loadTranslations(lang, callback) {
 const download = document.querySelectorAll(".download");
 
 
-
 let swiperMain;
 var swiper;
 var swiper2;
@@ -102,28 +97,27 @@ var swiperDots;
 
 let darknessStart = (activeIndex) => {
 
-        let darkness = document.querySelectorAll(".text-slider .swiper-slide");
-        let indexActive = activeIndex;
-        let opacity = 1;
+    let darkness = document.querySelectorAll(".text-slider .swiper-slide");
+    let indexActive = activeIndex;
+    let opacity = 1;
 
-        darkness[indexActive].style.opacity = opacity;
+    darkness[indexActive].style.opacity = opacity;
 
-        // обход массива от заданного индекса до начала
-        for (let i = indexActive - 1; i >= 0; i--) {
-            opacity -= 0.3;
-            darkness[i].style.opacity = opacity;
-        }
+    // обход массива от заданного индекса до начала
+    for (let i = indexActive - 1; i >= 0; i--) {
+        opacity -= 0.3;
+        darkness[i].style.opacity = opacity;
+    }
 
-        opacity = 1;
+    opacity = 1;
 
-        // обход массива от заданного индекса до конца
-        for (let i = indexActive + 1; i < darkness.length; i++) {
-            opacity -= 0.3;
-            darkness[i].style.opacity = opacity;
-        }
+    // обход массива от заданного индекса до конца
+    for (let i = indexActive + 1; i < darkness.length; i++) {
+        opacity -= 0.3;
+        darkness[i].style.opacity = opacity;
+    }
 
 }
-
 
 
 function initSwiper() {
@@ -141,7 +135,7 @@ function initSwiper() {
             //     waitForTransition: true,
             // },
             on: {
-                slideChange: function() {
+                slideChange: function () {
 
                     const activeSlideIndex = this.activeIndex;
                     const text = document.querySelector('.equipment__title');
@@ -196,9 +190,9 @@ function initSwiper() {
                     var activeSlide = this.slides[this.activeIndex];
                     var activeSlideOffsetLeft = activeSlide.offsetLeft;
                     let newOffset = activeSlideOffsetLeft / 2 * (-1);
-                    if(newOffset < -200) {
+                    if (newOffset < -200) {
                         newOffset = -200;
-                    } else if(newOffset > 0) {
+                    } else if (newOffset > 0) {
                         newOffset = 0;
                     }
                     wrapper.style.transform = "translate3d(" + newOffset + "px, 0px, 0px)";
@@ -262,7 +256,7 @@ function initSwiper() {
                 }
             }
         });
-    }else if (screenWidth <= 1024 && screenWidth > 450) {
+    } else if (screenWidth <= 1024 && screenWidth > 450) {
         var swiper = new Swiper(".text-slider", {
             spaceBetween: 10,
             navigation: {
@@ -291,7 +285,7 @@ function initSwiper() {
                 }
             }
         });
-    }else if (screenWidth <= 450) {
+    } else if (screenWidth <= 450) {
         var swiper = new Swiper(".text-slider", {
             spaceBetween: 10,
             navigation: {
@@ -323,16 +317,15 @@ function initSwiper() {
     }
 
 
-
 }
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     initSwiper();
 });
 
 initSwiper();
 
-if(swiperMain) {
+if (swiperMain) {
     swiperMain.on('slideChange', function () {
         let header = document.querySelector(".header");
         let headerNav = document.querySelectorAll(".header__nav .nav__link ");
@@ -343,14 +336,16 @@ if(swiperMain) {
         header.classList.add("header");
         footerNav.classList.add("footer__inner");
 
-        if(activeSlide == 1) {
+        if (activeSlide == 1) {
             header.classList.add("header--second");
-        }else if(activeSlide == 2) {
+        } else if (activeSlide == 2) {
             header.classList.add("header--third");
+
             footerNav.classList.add("footer--third");
-        }else if(activeSlide == 3) {
+        } else if (activeSlide == 3) {
             header.classList.add("header--fourth");
-        };
+        }
+        ;
 
         headerNav.forEach((el) => {
             el.classList.remove("active");
@@ -367,7 +362,7 @@ if(swiperMain) {
 var wrapper = document.querySelector('.swiper--main .swiper-wrapper');
 
 // подписываемся на событие скролла на элементе
-wrapper.addEventListener('wheel', function(e) {
+wrapper.addEventListener('wheel', function (e) {
     e.preventDefault(); // отменяем стандартное поведение скролла
 
     // определяем направление скролла
@@ -380,10 +375,6 @@ wrapper.addEventListener('wheel', function(e) {
         swiperMain.slidePrev();
     }
 });
-
-
-
-
 
 
 let swiperDotsChangeActive = (activeSlide) => {
@@ -401,13 +392,9 @@ let swiperDotsChangeActive = (activeSlide) => {
 };
 
 
-
-
-
-
 let initNav = () => {
     let navLinks = document.querySelectorAll(".header__main .nav__link");
-    let navLinksArr =  Array.from(navLinks);
+    let navLinksArr = Array.from(navLinks);
 
     navLinks.forEach((el) => {
         el.addEventListener("click", (e) => {
@@ -421,7 +408,7 @@ let initNav = () => {
     })
 
     let scrollMenu = document.querySelectorAll(".scroll-page");
-    let scrollLinksArr =  Array.from(scrollMenu);
+    let scrollLinksArr = Array.from(scrollMenu);
     scrollMenu.forEach((el) => {
         el.addEventListener("click", (e) => {
 
@@ -440,50 +427,27 @@ let initNav = () => {
 initNav();
 
 
+function zoomImage() {
+    let bg = document.querySelector('.scale');
+    window.addEventListener('mousemove', function (e) {
+        let x = e.clientX / window.innerWidth;
+        let y = e.clientY / window.innerHeight;
+        bg.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+    });
+}
+
+zoomImage();
+
 let svg1 = document.querySelector('.image-right object');
 let svg2 = document.querySelector('.image-left object');
-let img = document.querySelector('.image1');
 
 let svg1CoeffX = 0.05;
 let svg1CoeffY = 0.05;
 let svg2CoeffX = -0.05;
 let svg2CoeffY = -0.05;
-let startScale = 1;
-let endScale = 1.3;
-let scale = startScale;
 
 
-function imgScale () {
-
-    if (scale == startScale) {
-        while (scale < endScale) {
-            img.style.transform = `scale(${scale})`;
-            scale += 0.1;
-
-        }
-    } else {
-        while (scale > startScale) {
-            img.style.transform = `scale(${scale})`;
-            scale -= 0.1;
-
-        }
-        console.log(scale)
-    }
-}
-
-function debounce(func, wait, immediate) {    let timeout;
-    return function executedFunction() {
-        const context = this;        const args = arguments;
-        const later = function() {
-            timeout = null;            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);    };
-};
-
-document.addEventListener('debounce', function(e) {
+document.addEventListener('mousemove', function (e) {
     let mouseX = e.clientX;
     let mouseY = e.clientY;
 
@@ -492,16 +456,9 @@ document.addEventListener('debounce', function(e) {
     let svg2X = mouseX * svg2CoeffX;
     let svg2Y = mouseY * svg2CoeffY;
 
-
-    debounce(imgScale(),250);
-
-
-
     svg1.style.transform = 'translate(' + svg1X + 'px, ' + svg1Y + 'px)';
     svg2.style.transform = 'translate(' + svg2X + 'px, ' + svg2Y + 'px)';
 });
-
-
 
 
 const navLinks = document.querySelectorAll('.nav__link');
@@ -511,23 +468,5 @@ const secondLink = navLinks[1];
 if (secondLink.classList.contains('active')) {
     headerSecond.style.opacity = '0.9';
 }
-
-window.addEventListener("resize", saveCurrentSlide);
-
-function saveCurrentSlide() {
-    let currentPosition = swiperMain.realIndex;
-    localStorage.setItem('currentPosition', currentPosition);
-    location.reload();
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    let savedPosition = localStorage.getItem('currentPosition');
-    if (savedPosition !== null) {
-        swiperMain.slideTo(savedPosition);
-        localStorage.clear();
-    }
-
-
-});
 
 
