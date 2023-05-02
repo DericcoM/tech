@@ -1,5 +1,6 @@
 
 body {
+    position: relative;
     scroll-behavior: smooth;
     overflow: hidden;
     width: 100vw;
@@ -9,7 +10,7 @@ body {
     /*font-family: 'Roboto Flex', sans-serif;*/
     color: #ffffff;
     background-color: #ffffff;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
@@ -142,7 +143,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     text-transform: uppercase;
     position: relative;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 14px;
     line-height: 0;
 
@@ -828,8 +829,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 .swiper-img-container img {
-    width: 631px;
-    height: 469px;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -1164,7 +1165,13 @@ h1, h2, h3, h4, h5, h6, li, ol {
 @media (min-width: 2000px) {
 
     .engineering__title {
-        font-size: 200px;
+        font-size: 234px;
+        margin-left: 8.15%;
+        padding-top: 4%;
+    }
+
+    .equipment__section {
+        padding-top: 3%;
     }
 
     .company__title-engineering {
@@ -1181,11 +1188,12 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .swiper {
         width: 45%;
+        margin-top: 3%;
     }
 
     .equipment__title {
         font-size: 200px;
-        margin-right: 25.5%;
+        margin-right: 25.4%;
     }
 
     .company__prop-title {
@@ -1216,9 +1224,26 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 }
 
-@media (max-height: 800px ) {
+@media (max-height: 850px ) {
+
+    .company__logo {
+        width: 40%;
+    }
+
+    .image-left object {
+        width: 68%;
+    }
+
+    .image-right {
+        right: -15%;
+    }
+
+    .image-right object {
+        width: 68%;
+    }
+
     .company__description {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .leader__logoContainer {
@@ -1228,15 +1253,15 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .leader__name {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .leader__subtitle {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .company__prop-subtitle {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .company__prop-img {
@@ -1263,7 +1288,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .engineering__title {
-        font-size: 135px;
+        font-size: 125px;
     }
 
     .equipment__title {
@@ -1278,23 +1303,54 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 @media (max-width: 1480px) {
     .company__title-engineering {
-        font-size: 25px;
+        font-size: 18px;
     }
 
     .engineering__description {
-        font-size: 15px;
+        font-size: 12px;
+    }
+
+    .social__group {
+        margin-top: 7%;
+        margin-left: 7%;
+        display: flex;
+        align-items: center;
     }
 
     .equipment__title {
-        font-size: 120px;
+        font-size: 85px;
+        margin-right: 35.2%;
     }
 
+    .equipment__description.active:before {
+        top: -1%;
+        left: -6%;
+    }
+
+    .equipment__link__title:before {
+        left: -7%;
+        top: -16%;
+    }
+
+    .swiper-img-container img {
+        object-fit: contain;
+        width: 400px;
+        height: 330px;
+    }
+
+    .image-slider {
+        width: 400px;
+        height: 313px;
+    }
+
+
+
     .swiper {
-        width: 47.4%;
+        width: 41.4%;
     }
 
     .equipment__description {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 

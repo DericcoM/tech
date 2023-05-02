@@ -119,16 +119,14 @@ let darknessStart = (activeIndex) => {
 
 }
 
-
+console.log('as123d')
 function initSwiper() {
     let screenWidth = window.innerWidth;
 
     if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
-            touchEventsTarget: "wrapper",
-            simulateTouch: true,
-            touchRatio: 1,
-            speed: 1000,
+            cssMode: true,
+
             // autoplay: {
             //     delay: 5000,
             //     disableOnInteraction: true,
@@ -188,13 +186,14 @@ function initSwiper() {
 
                     var wrapper = this.$wrapperEl[0];
                     var activeSlide = this.slides[this.activeIndex];
-                    var activeSlideOffsetLeft = activeSlide.offsetLeft;
-                    let newOffset = activeSlideOffsetLeft / 2 * (-1);
-                    if (newOffset < -200) {
-                        newOffset = -200;
-                    } else if (newOffset > 0) {
-                        newOffset = 0;
-                    }
+                    var activeSlideOffsetLeft = activeSlide.offsetLeft - 35 ;
+                    console.log(activeSlideOffsetLeft);
+                    let newOffset = activeSlideOffsetLeft /  (-1);
+                    // if (newOffset < -200) {
+                    //     newOffset = -200;
+                    // } else if (newOffset > 0) {
+                    //     newOffset = 0;
+                    // }
                     wrapper.style.transform = "translate3d(" + newOffset + "px, 0px, 0px)";
                 }
             }
@@ -468,5 +467,7 @@ const secondLink = navLinks[1];
 if (secondLink.classList.contains('active')) {
     headerSecond.style.opacity = '0.9';
 }
+
+console.log(122133);
 
 
