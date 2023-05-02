@@ -135,11 +135,11 @@ function initSwiper() {
             simulateTouch: true,
             touchRatio: 1,
             speed: 1000,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: true,
-                waitForTransition: true,
-            },
+            // autoplay: {
+            //     delay: 5000,
+            //     disableOnInteraction: true,
+            //     waitForTransition: true,
+            // },
             on: {
                 slideChange: function() {
 
@@ -206,7 +206,7 @@ function initSwiper() {
             }
         });
         var swiper2 = new Swiper(".image-slider", {
-            spaceBetween: 10,
+            spaceBetween: 1,
             simulateTouch: true,
             touchRatio: 0.5,
             speed: 1000,
@@ -442,13 +442,48 @@ initNav();
 
 let svg1 = document.querySelector('.image-right object');
 let svg2 = document.querySelector('.image-left object');
+let img = document.querySelector('.image1');
 
 let svg1CoeffX = 0.05;
 let svg1CoeffY = 0.05;
 let svg2CoeffX = -0.05;
 let svg2CoeffY = -0.05;
+let startScale = 1;
+let endScale = 1.3;
+let scale = startScale;
 
-document.addEventListener('mousemove', function(e) {
+
+function imgScale () {
+
+    if (scale == startScale) {
+        while (scale < endScale) {
+            img.style.transform = `scale(${scale})`;
+            scale += 0.1;
+
+        }
+    } else {
+        while (scale > startScale) {
+            img.style.transform = `scale(${scale})`;
+            scale -= 0.1;
+
+        }
+        console.log(scale)
+    }
+}
+
+function debounce(func, wait, immediate) {    let timeout;
+    return function executedFunction() {
+        const context = this;        const args = arguments;
+        const later = function() {
+            timeout = null;            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);    };
+};
+
+document.addEventListener('debounce', function(e) {
     let mouseX = e.clientX;
     let mouseY = e.clientY;
 
@@ -457,9 +492,15 @@ document.addEventListener('mousemove', function(e) {
     let svg2X = mouseX * svg2CoeffX;
     let svg2Y = mouseY * svg2CoeffY;
 
+
+    debounce(imgScale(),250);
+
+
+
     svg1.style.transform = 'translate(' + svg1X + 'px, ' + svg1Y + 'px)';
     svg2.style.transform = 'translate(' + svg2X + 'px, ' + svg2Y + 'px)';
 });
+
 
 
 
