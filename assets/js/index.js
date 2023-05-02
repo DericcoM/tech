@@ -126,7 +126,6 @@ function initSwiper() {
     if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
             cssMode: true,
-
             // autoplay: {
             //     delay: 5000,
             //     disableOnInteraction: true,
@@ -356,24 +355,53 @@ if (swiperMain) {
     });
 }
 
-
-// получаем элемент swiper-wrapper
-var wrapper = document.querySelector('.swiper--main .swiper-wrapper');
-
-// подписываемся на событие скролла на элементе
-wrapper.addEventListener('wheel', function (e) {
-    e.preventDefault(); // отменяем стандартное поведение скролла
-
-    // определяем направление скролла
-    var direction = (e.deltaY > 0) ? 'next' : 'prev';
-
-    // вызываем метод slideTo с нужным индексом слайда
-    if (direction == 'next') {
-        swiperMain.slideNext();
-    } else {
-        swiperMain.slidePrev();
-    }
-});
+//
+// // получаем элемент swiper-wrapper
+// var wrapper = document.querySelector('.swiper--main .swiper-wrapper');
+//
+// // подписываемся на событие скролла на элементе
+// document.addEventListener('wheel', function (e) {
+//     e.preventDefault(); // отменяем стандартное поведение скролла
+//
+//     // определяем направление скролла
+//     var direction = (e.deltaY > 0) ? 'next' : 'prev';
+//
+//     // вызываем метод slideTo с нужным индексом слайда
+//     if (direction == 'next') {
+//         swiperMain.slideNext();
+//     } else {
+//         swiperMain.slidePrev();
+//     }
+// });
+//
+// var touchStartX, touchStartY;
+//
+// document.addEventListener('touchstart', function (e) {
+//     touchStartX = e.touches[0].clientX;
+//     touchStartY = e.touches[0].clientY;
+// });
+//
+// document.addEventListener('touchend', function (e) {
+//     var touchEndX = e.changedTouches[0].clientX;
+//     var touchEndY = e.changedTouches[0].clientY;
+//     var dx = touchEndX - touchStartX;
+//     var dy = touchEndY - touchStartY;
+//
+//     // определяем направление свайпа
+//     var direction;
+//     if (Math.abs(dx) > Math.abs(dy)) {
+//         direction = dx > 0 ? 'prev' : 'next';
+//     } else {
+//         direction = dy > 0 ? 'prev' : 'next';
+//     }
+//
+//     // вызываем метод slideTo с нужным индексом слайда
+//     if (direction == 'next') {
+//         swiperMain.slideNext();
+//     } else {
+//         swiperMain.slidePrev();
+//     }
+// });
 
 
 let swiperDotsChangeActive = (activeSlide) => {
@@ -427,6 +455,10 @@ initNav();
 
 
 function zoomImage() {
+    let screenWidth = window.innerWidth;
+    if (screenWidth <=1280) {
+        return
+    }
     let bg = document.querySelector('.scale');
     window.addEventListener('mousemove', function (e) {
         let x = e.clientX / window.innerWidth;
@@ -467,7 +499,5 @@ const secondLink = navLinks[1];
 if (secondLink.classList.contains('active')) {
     headerSecond.style.opacity = '0.9';
 }
-
-console.log(122133);
 
 

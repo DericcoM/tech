@@ -2,7 +2,6 @@
 body {
     position: relative;
     scroll-behavior: smooth;
-    overflow: hidden;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -1162,7 +1161,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 
-@media (min-width: 2000px) {
+@media (min-width: 2000px) and (min-height: 1200px) {
 
     .engineering__title {
         font-size: 234px;
@@ -1221,6 +1220,11 @@ h1, h2, h3, h4, h5, h6, li, ol {
     .leader__subtitle {
         font-size: 20px;
     }
+
+}
+
+
+@media (min-width: 2000px) and (max-height: 1100px) {
 
 }
 
@@ -1363,6 +1367,26 @@ h1, h2, h3, h4, h5, h6, li, ol {
         overflow-y: scroll;
     }
 
+    .scale {
+        width: 100%;
+        height: 61%;
+        transform: none;
+    }
+
+    .container-header {
+        padding: 0;
+    }
+
+    .equipment__container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: auto;
+        flex-direction: column;
+    }
+
     .equipment__section .swiper {
         width: 100%;
     }
@@ -1381,13 +1405,13 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .language-switch {
         position: absolute;
-        top: 4.5%;
+        top: 1.5%;
         left: 7%;
     }
 
     .menu-toggle {
         position: absolute;
-        top: 4.6%;
+        top: 1.7%;
         right: 5%;
         cursor: pointer;
         width: 30px;
@@ -1440,13 +1464,14 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .menu.open {
+        margin: 0 auto;
         position: absolute;
-        top: 6%;
+        top: 3%;
         left: 45%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        visibility: unset; /* добавьте свойство transform с нулевым значением translateY, чтобы меню вернулось на свою исходную позицию */
+        visibility: unset;
     }
 
     .nav__link {
@@ -1459,6 +1484,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 
     .container {
+        min-height: auto;
         padding: unset;
         height: auto;
         width: auto;
@@ -1508,12 +1534,13 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .company__logo-mob {
+        margin: 4%;
         display: block;
         width: 293px;
         height: 66px;
-        margin-left: 33%;
-        margin-top: 5%;
-        margin-bottom: 4%;
+        /* margin-left: 33%; */
+        /* margin-top: 5%; */
+        /* margin-bottom: 4%; */
     }
 
     .bckg-mix {
@@ -1536,7 +1563,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .section-container {
-        margin-left: 0;
+        margin-left: auto;
         display: flex;
         flex-direction: column;
     }
@@ -1575,7 +1602,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
     .company__leader {
         /* margin-right: 109%; */
         margin-top: 4%;
-        width: 132%;
         display: flex;
         align-content: center;
         align-items: center;
@@ -1712,7 +1738,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .equipment__main {
-        width: 100vw;
+        width: 100%;
         margin-left: 0%;
         order: 2;
     }
@@ -1803,12 +1829,14 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .equipment__download {
+        padding: 2% 0;
+        display: flex;
         margin: 0;
+        flex-direction: column;
+        align-items: center;
     }
 
     .equipment__link__title {
-        margin-left: 39%;
-        /* padding-bottom: 83px; */
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
@@ -1822,18 +1850,14 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
 
-    .download {
-        margin-left: 40%;
-    }
 
     #third {
-        margin-top: 5%;
-        margin-bottom: 5%;
+        margin: auto;
+        padding: 2%;
     }
 
     .social-container {
-        margin-top: 5.5%;
-        margin-left: 42.8%;
+        margin: auto;
     }
 
     .social-logo-container {
@@ -1841,23 +1865,20 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .social-bg {
-        height: 25%;
+        height: auto;
     }
 
     .social-logo-container-mob {
         display: block;
-        margin-left: -77%;
+        padding: 10% 0;
     }
 
     .social-info {
-        margin-left: -10%;
         display: block;
-        margin-top: 20%;
     }
 
     .social__address {
         width: 88%;
-        margin-left: -9%;
         font-style: normal;
         font-weight: 300;
         font-size: 14px;
@@ -1871,7 +1892,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .social__contact {
-        margin-left: -9%;
+        margin: auto;
     }
 
     .social__mail {
@@ -1897,11 +1918,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
         line-height: 20px;
     }
 
-    .social__group {
-        margin-left: 5%;
-        margin-top: 17%;
-        margin-bottom: 5%;
-    }
 
     .social .section__footer {
         display: flex;
@@ -1933,7 +1949,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
-        margin-right: 70%;
     }
 
     .soc-mob-footer .company__year {
@@ -1958,37 +1973,22 @@ h1, h2, h3, h4, h5, h6, li, ol {
         height: 469px;
     }
 
+
     .social__group {
-        margin-left: -70.5%;
+        margin: 8% auto;
     }
+
 
 }
 
-@media (max-width: 1080px) {
-    .soc-mob-footer {
-        margin-right: 65%;
-    }
-
-}
-
-@media (max-height: 1032px) and (max-width: 430px) {
-    .social__group {
-        margin-left: -35%;
-        margin-top: 50px;
-    }
-}
 
 
 @media (max-width: 1024px) {
 
-    .equipment__title {
-        margin-top: -8%;
-        margin-bottom: 4%;
-    }
 
     .image-slider {
         width: 100vw;
-        height: 469px;
+        height: 100%;
     }
 
     .image-slider .swiper-slide {
@@ -1999,9 +1999,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
         padding: 4% 6%;
     }
 
-    .social__group {
-        margin-bottom: 20%;
-    }
 
     .image-slider {
         width: 100vw;
@@ -2011,70 +2008,26 @@ h1, h2, h3, h4, h5, h6, li, ol {
         width: 631px;
         height: 469px;
     }
-
-    .social__group {
-        margin-left: -63.5%;
-    }
-
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -71%;
-    }
 }
 
 @media (max-width: 913px) {
 
-    .menu-toggle {
-        top: 2.1%;
+    .social-bg {
+        height: 21%;
     }
 
-    .language-switch {
-        position: absolute;
-        top: 1.9%;
-        left: 7%;
-    }
-
-    .equipment__title {
-        margin-top: -7%;
-    }
 
     .image-slider .swiper-slide {
         padding-left: 16%;
     }
 
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -72%;
-    }
 
-    .social__group {
-        margin-left: -61%;
-        margin-top: 17%;
-        margin-bottom: 20%;
-    }
 
-    .soc-mob-footer {
-        margin-right: 60%;
-    }
 }
 
 
 @media (max-width: 820px) {
 
-    .menu-toggle {
-        top: 2.6%;
-    }
-
-    .language-switch {
-        position: absolute;
-        top: 2.5%;
-        left: 7%;
-    }
-
-    .equipment__title {
-        margin-top: -7%;
-        margin-left: 30%;
-    }
 
     .image-slider {
         width: 100vw;
@@ -2095,27 +2048,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
         padding: 4% 15%;
     }
 
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -83%;
-    }
-
-    .social-container {
-        margin-top: 5.5%;
-        /* margin-left: 41.8%; */
-    }
-
-    .social__group {
-        margin-left: -76%;
-    }
-
-    .soc-mob-footer {
-        margin-left: -11%;
-    }
-
-    .social-bg {
-        height: 18%;
-    }
 }
 
 @media (max-width: 768px) {
@@ -2123,10 +2055,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
         padding-left: 9%;
     }
 
-    .equipment__title {
-        margin-left: 29%;
-        margin-bottom: 5%;
-        margin-top: -6%;
+    .social-info {
+        margin-left: 26%;
     }
 
     .swiper-img-container img {
@@ -2135,16 +2065,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .social-bg {
-        height: 16%;
-    }
-
-    .social__group {
-        margin-left: -76%;
-    }
-
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -84%;
+        height: 18%;
     }
 
 }
@@ -2155,34 +2076,13 @@ h1, h2, h3, h4, h5, h6, li, ol {
         padding-left: 0%;
     }
 
-    .equipment__title {
-        margin-left: 15%;
+
+    .menu.open {
+        left: 35%;
     }
 }
 
 @media (max-width: 425px) {
-    .language-switch {
-        top: 4.5%;
-    }
-
-    .menu-toggle {
-        top: 5.6%;
-        right: 7%;
-    }
-
-    .company__logo-mob {
-        margin-left: 6%;
-    }
-
-    .menu.open {
-        top: 12%;
-        left: 34%;
-    }
-
-    .company__title {
-        width: 45%;
-    }
-
     .company__subtitle {
         width: 62%;
     }
@@ -2192,66 +2092,35 @@ h1, h2, h3, h4, h5, h6, li, ol {
         margin-left: -25%;
     }
 
-    .company__leader {
-        width: 110%;
-    }
 
     .company__inner {
         height: 854px;
-        padding: 10% 15%;
+        padding: 10% 12%;
     }
 
-    .company__title-engineering {
-        width: 90%;
-        margin-top: 3%;
-    }
 
-    .engineering__text {
-        margin-left: 3%;
-        padding-top: 10%;
-    }
-
-    .engineering__title {
-        margin-top: -6%;
-        margin-left: 8%;
+    .engineering__container {
+        height: 786px;
     }
 
     .engineering__description:not(:last-child) {
-        margin-top: 7%;
+        margin: 5%;
     }
 
     .equipment__link__title {
         margin-left: 28%;
     }
 
-    .download {
-        margin-left: 29%;
-        text-decoration: none;
-    }
 
     .image-slider {
         width: 300px;
     }
 
-    .social-container {
-        margin-top: 5.5%;
-        margin-left: 31.8%;
+
+    .social-bg {
+        height: 15%;
     }
 
-    .social__group {
-        margin-left: -44%;
-    }
-
-    .soc-mob-footer {
-        width: 100%;
-        margin-left: 19%;
-        margin-bottom: 5%;
-    }
-
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -54%;
-    }
 }
 
 @media (max-width: 540px) {
@@ -2259,26 +2128,18 @@ h1, h2, h3, h4, h5, h6, li, ol {
         font-size: 9px;
     }
 
-    .equipment__title {
-        margin-left: 20%;
-    }
 }
 
 @media (max-width: 425px) {
 
-    .language-switch {
-        top: 2.5%;
+    .company__prop-title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
     }
 
-    .menu-toggle {
-        top: 3%;
-        right: 7%;
-    }
 
-    .menu.open {
-        top: 7%;
-        left: 36%;
-    }
 
 
     .nav__link:not(:last-child) {
@@ -2290,33 +2151,19 @@ h1, h2, h3, h4, h5, h6, li, ol {
         width: 74%;
     }
 
-    .company__leader {
-        width: 95%;
-    }
 
     .engineering__title {
-        margin-top: 3%;
-        margin-left: 25%;
-    }
-
-    .engineering__container {
-        width: 100%;
-        height: 662px;
-    }
-
-    .company__title-engineering {
-        width: 90%;
         margin-top: 5%;
+        margin-left: 22%;
+
     }
+
+
 
     .swiper {
         width: 100%;
     }
 
-    .equipment__title {
-        margin-top: -6%;
-        margin-left: 8%;
-    }
 
     .image-slider {
         width: 100vw;
@@ -2353,51 +2200,24 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 }
 
-@media (max-width: 412px) {
-    .social__group {
-        margin-left: -45%;
-    }
-
-    .soc-mob-footer {
-        width: 100%;
-        margin-left: 17%;
-        margin-bottom: 5%;
-    }
-
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -58%;
-    }
-
-    .social-bg {
-        height: 16%;
-    }
-}
-
-@media (max-width: 375px) {
+@media (max-width: 379px) {
 
     .company__prop-title {
         margin: 7% 0 0 -15%;
+        font-size: 18px;
     }
 
     .engineering__title {
-        margin-left: 21%;
+        margin-left: 25%;
+        font-size: 32px;
     }
 
-    .company__title-engineering {
-        width: 90%;
-        margin-top: 4%;
-    }
+
 
     .equipment__title {
-        margin-top: -10%;
-        margin-left: 4%;
+        font-size: 35px;
     }
 
-    .engineering__container {
-        width: 100%;
-        height: 720px;
-    }
 
     .equipment__main {
         width: 100vw;
@@ -2417,79 +2237,18 @@ h1, h2, h3, h4, h5, h6, li, ol {
         margin: 0;
     }
 
+    .social-bg {
+        height: 13%;
+    }
+
 }
 
-@media (max-width: 320px) {
+
+@media (max-width: 340px) {
     .engineering__container {
-        width: 100%;
-        height: 831px;
-    }
-
-    .engineering__title {
-        font-size: 34px;
-    }
-
-    .company__inner {
-        height: 854px;
-        padding: 20% 0 0 15%;
-    }
-
-    .company__prop-subtitle {
-        font-style: normal;
-        font-weight: 200;
-        font-size: 12px;
-        line-height: 152.69%;
-    }
-
-    .menu.open {
-        top: 10%;
-        left: 30%;
-    }
-
-    .language-switch {
-        top: 3.5%;
-    }
-
-    .menu-toggle {
-        top: 4%;
-        right: 7%;
-    }
-
-    .company__title {
-        width: 57%;
-    }
-
-    .company__subtitle {
-        width: 73%;
-    }
-
-    .image1 {
-        height: 621px;
-    }
-
-    .company__title {
-        width: 94%;
-    }
-
-    .equipment__title {
-        font-size: 34px;
-        margin-left: 4%;
-    }
-
-    .image-slider {
-        width: 320px;
-    }
-
-    .text-slider .swiper-slide {
-        margin: 0;
-    }
-
-    .social-logo-container-mob {
-        display: block;
-        margin-left: -35%;
+        height: 900px;
     }
 }
-
 
 
 
