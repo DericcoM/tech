@@ -2079,7 +2079,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .company__year {
         width: auto;
-        margin-top: 8%;
+        margin: 8% auto;
         font-style: normal;
         font-weight: 200;
         font-size: 12px;
