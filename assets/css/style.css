@@ -2213,7 +2213,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .menu.open {
-        left: 35%;
+        left: 32%;
+        top: 7%;
     }
 }
 
