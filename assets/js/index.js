@@ -113,34 +113,7 @@ const translations = {
     }
 };
 
-// Функция, которая переводит элементы с атрибутом data-translate
-function translatePage(language) {
-    // Находим все элементы на странице с атрибутом data-translate
-    const elementsToTranslate = document.querySelectorAll('[data-translate]');
-
-    // Проходимся по каждому элементу и заменяем его текст на соответствующий перевод
-    elementsToTranslate.forEach(element => {
-        const width = element.offsetWidth;
-        const height = element.offsetHeight;
-        element.style.maxWidth = width;
-        element.style.maxHeight = height;
-        element.style.opacity = 0;
-        const translationKey = element.dataset.translate;
-        const translation = translations[language][translationKey];
-        setTimeout(() => {
-
-            element.textContent = translation;
-            element.style.opacity = 1;
-            }, 500);
-
-    });
-}
-
-// Пример вызова функции для перевода страницы на русский язык
-
-
 // const languageButtons = document.querySelectorAll(".language");
-//
 // languageButtons.forEach((button) => {
 //     button.addEventListener('click', () => {
 //         languageButtons.forEach((button) => {
@@ -152,23 +125,61 @@ function translatePage(language) {
 //     });
 // });
 //
-// function switchLanguage(lang) {
-//     const elements = document.querySelectorAll('[data-translate]');
-//     loadTranslations(lang, function (translations) {
-//         elements.forEach(function (element) {
-//             const height = element.offsetHeight;
-//             const width = element.offsetWidth;
-//             const key = element.dataset.translate;
-//             element.style.opacity = 0;
-//             element.style.maxWidth = width;
-//             element.style.maxHeight = height;
-//             setTimeout(() => {
-//                 element.textContent = translations[key];
-//                 element.style.opacity = 1;
+// // Функция, которая переводит элементы с атрибутом data-translate
+// function translatePage(language) {
+//     // Находим все элементы на странице с атрибутом data-translate
+//     const elementsToTranslate = document.querySelectorAll('[data-translate]');
+//     // Проходимся по каждому элементу и заменяем его текст на соответствующий перевод
+//     elementsToTranslate.forEach(element => {
+//         const width = element.offsetWidth;
+//         const height = element.offsetHeight;
+//         element.style.maxWidth = width;
+//         element.style.maxHeight = height;
+//         element.style.opacity = 0;
+//         const translationKey = element.dataset.translate;
+//         const translation = translations[language][translationKey];
+//         setTimeout(() => {
+//
+//             element.textContent = translation;
+//             element.style.opacity = 1;
 //             }, 500);
-//         });
+//
 //     });
 // }
+
+// Пример вызова функции для перевода страницы на русский язык
+
+
+const languageButtons = document.querySelectorAll(".language");
+
+languageButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        languageButtons.forEach((button) => {
+            button.classList.toggle('active', button === event.target);
+        });
+
+        const lang = event.target.dataset.lang;
+        switchLanguage(lang);
+    });
+});
+
+function switchLanguage(lang) {
+    const elements = document.querySelectorAll('[data-translate]');
+    loadTranslations(lang, function (translations) {
+        elements.forEach(function (element) {
+            const height = element.offsetHeight;
+            const width = element.offsetWidth;
+            const key = element.dataset.translate;
+            element.style.opacity = 0;
+            element.style.maxWidth = width;
+            element.style.maxHeight = height;
+            setTimeout(() => {
+                element.textContent = translations[key];
+                element.style.opacity = 1;
+            }, 500);
+        });
+    });
+}
 
 function loadTranslations(lang, callback) {
     const xhr = new XMLHttpRequest();
@@ -214,14 +225,13 @@ let darknessStart = (activeIndex) => {
     }
 
 }
-
-console.log('as123d')
 function initSwiper() {
     let screenWidth = window.innerWidth;
 
     if (screenWidth > 1280 && !swiperMain) {
         swiperMain = new Swiper('.swiper--main', {
-            cssMode: true,
+            simulateTouch: true,
+            speed: 1500,
             // autoplay: {
             //     delay: 5000,
             //     disableOnInteraction: true,
@@ -272,7 +282,7 @@ function initSwiper() {
         var swiper = new Swiper(".text-slider", {
             spaceBetween: 10,
             slidesPerView: 4,
-
+            width: 1100,
             watchSlidesProgress: true,
             on: {
                 slideChange: function () {
@@ -281,7 +291,7 @@ function initSwiper() {
 
                     var wrapper = this.$wrapperEl[0];
                     var activeSlide = this.slides[this.activeIndex];
-                    var activeSlideOffsetLeft = activeSlide.offsetLeft - 35 ;
+                    var activeSlideOffsetLeft = activeSlide.offsetLeft;
                     console.log(activeSlideOffsetLeft);
                     let newOffset = activeSlideOffsetLeft /  (-1);
                     // if (newOffset < -200) {
@@ -559,7 +569,7 @@ function zoomImage() {
     window.addEventListener('mousemove', function (e) {
         let x = e.clientX / window.innerWidth;
         let y = e.clientY / window.innerHeight;
-        bg.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+        bg.style.transform = 'translate(-' + x * 15 + 'px, -' + y * 15 + 'px)';
     });
 }
 
@@ -568,10 +578,10 @@ zoomImage();
 let svg1 = document.querySelector('.image-right object');
 let svg2 = document.querySelector('.image-left object');
 
-let svg1CoeffX = 0.05;
-let svg1CoeffY = 0.05;
-let svg2CoeffX = -0.05;
-let svg2CoeffY = -0.05;
+let svg1CoeffX = 0.01;
+let svg1CoeffY = 0.01;
+let svg2CoeffX = -0.01;
+let svg2CoeffY = -0.01;
 
 
 document.addEventListener('mousemove', function (e) {
@@ -596,4 +606,6 @@ if (secondLink.classList.contains('active')) {
     headerSecond.style.opacity = '0.9';
 }
 
+let params = (new URL(document.location)).searchParams;
+console.log(params.get("data"));
 
