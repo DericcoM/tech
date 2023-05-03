@@ -382,7 +382,7 @@ function initSwiper() {
             }
         });
         var swiper2 = new Swiper(".image-slider", {
-            spaceBetween: 10,
+            spaceBetween: 1,
             on: {
                 slideChange: function () {
                     swiper.slideTo(this.activeIndex);
@@ -411,7 +411,7 @@ function initSwiper() {
             }
         });
         var swiper2 = new Swiper(".image-slider", {
-            spaceBetween: 10,
+            spaceBetween: 1,
             on: {
                 slideChange: function () {
                     swiper.slideTo(this.activeIndex);
@@ -448,8 +448,7 @@ if (swiperMain) {
             footerNav.classList.add("footer--third");
         } else if (activeSlide == 3) {
             header.classList.add("header--fourth");
-        }
-        ;
+        };
 
         headerNav.forEach((el) => {
             el.classList.remove("active");

@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     z-index: -1;
     position: absolute;
 
-    right: 0%;
+    right: 0;
     top: -10%;
 }
 
@@ -523,7 +523,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     font-style: normal;
     font-weight: 200;
     font-size: 16px;
-    line-height: 0px;
+    line-height: 0;
     letter-spacing: 1px;
 }
 
@@ -541,7 +541,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 0px;
+    line-height: 0;
     color: #41A99E;
     opacity: 0.5;
     margin-right: 81px;
@@ -598,7 +598,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 .engineering__text {
     margin: 10% auto 0;
-    padding: 0 0% 0 6%;
+    padding: 0 0 0 6%;
 }
 
 
@@ -797,7 +797,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 .equipment__prop-img {
     height: 27px;
     width: 30px;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .equipment__link__title {
@@ -927,7 +927,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     font-style: normal;
     font-weight: 572;
     font-size: 20px;
-    line-height: 0px;
+    line-height: 0;
 
     display: flex;
     align-items: center;
@@ -939,7 +939,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 
 .pagination-after .swiper-pagination-bullet {
-    height: 0px;
+    height: 0;
     background: #41A99E;
 }
 
@@ -1089,7 +1089,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 0px;
+    line-height: 0;
     letter-spacing: 1px;
 }
 
@@ -1113,7 +1113,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     font-style: normal;
     font-weight: 500;
     font-size: 21px;
-    line-height: 0px;
+    line-height: 0;
 }
 
 .social__phone:before {
@@ -1291,10 +1291,16 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 
+
+
 @media (max-height: 900px ) {
 
     .company__logo {
-        width: 40%;
+        width: 36%;
+    }
+
+    .company__description::before {
+        top: -6px;
     }
 
     .image-left object {
@@ -1315,6 +1321,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .company__subtitle {
         height: 120px;
+        margin-top: 2.4%;
     }
 
     .leader__logoContainer {
@@ -1357,7 +1364,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .engineering__description {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     .engineering__title {
@@ -1375,6 +1382,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 }
 
+
+
 @media (max-width: 1700px) and (max-height: 1000px) {
 
     .engineering__title {
@@ -1382,6 +1391,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .company__title-engineering {
+        line-height: 24px;
         font-size: 18px;
     }
 
@@ -1390,15 +1400,14 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .social__group {
-        margin-top: 7%;
-        margin-left: 7%;
         display: flex;
         align-items: center;
     }
 
     .equipment__title {
+        margin-right: 40.9%;
+
         font-size: 85px;
-        margin-right: 35.2%;
     }
 
     .equipment__description.active:before {
@@ -1422,7 +1431,9 @@ h1, h2, h3, h4, h5, h6, li, ol {
         height: 313px;
     }
 
-
+    .equipment__desc {
+        height: 36vh;
+    }
 
     .swiper {
         width: 41.4%;
@@ -1434,9 +1445,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 @media (max-width: 1445px) {
-    .equipment__title {
-        font-size: 130.4px;
-    }
+
 
     .leader__logoContainer {
         border-radius: 50%;
@@ -1727,14 +1736,14 @@ h1, h2, h3, h4, h5, h6, li, ol {
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
-        line-height: 0px;
+        line-height: 0;
     }
 
     .leader__subtitle {
         font-style: normal;
         font-weight: 200;
         font-size: 14px;
-        line-height: 0px;
+        line-height: 0;
     }
 
     .leader__logoContainer {
@@ -1870,7 +1879,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .equipment__main {
         width: 100%;
-        margin-left: 0%;
+        margin-left: 0;
         order: 2;
     }
 
@@ -1933,7 +1942,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         color: #00182C;
         padding-bottom: 3%;
         padding-left: 4%;
-        margin-right: 0%;
+        margin-right: 0;
         padding-right: 1%;
     }
 
@@ -1943,7 +1952,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .equipment__container {
-        margin-left: 0%;
+        margin-left: 0;
     }
 
     .image-slider {
@@ -2074,7 +2083,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         font-style: normal;
         font-weight: 200;
         font-size: 12px;
-        line-height: 0px;
+        line-height: 0;
     }
 
     .soc-mob-footer {
@@ -2087,7 +2096,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         font-style: normal;
         font-weight: 200;
         font-size: 12px;
-        line-height: 0px;
+        line-height: 0;
     }
 
     .image-slider .swiper-wrapper {
@@ -2145,7 +2154,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 @media (max-width: 913px) {
 
     .social-bg {
-        height: 21%;
+        height: 23%;
     }
 
 
@@ -2201,7 +2210,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .social-bg {
-        height: 18%;
+        height: 20%;
     }
 
 }
@@ -2209,7 +2218,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 @media (max-width: 700px) {
     .image-slider .swiper-slide {
-        padding-left: 0%;
+        padding-left: 0;
     }
 
     .company__description {
@@ -2268,7 +2277,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 
 .social-bg {
-    height: 15%;
+    height: 17%;
 }
 
 }
@@ -2290,7 +2299,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 .nav__link:not(:last-child) {
-    margin-right: 0%;
+    margin-right: 0;
 }
 
 .swiper {
@@ -2324,7 +2333,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 .equipment__description {
-    margin-right: 0%;
+    margin-right: 0;
 }
 
 .equipment__download {
@@ -2357,12 +2366,12 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 .equipment__main {
     width: 100vw;
-    margin-left: 0%;
+    margin-left: 0;
     order: 2;
 }
 
 .social-bg {
-    height: 15%;
+    height: 17%;
 }
 
 .image-slider {
@@ -2374,7 +2383,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 .social-bg {
-    height: 14%;
+    height: 15%;
 }
 
 }
