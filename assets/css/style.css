@@ -2384,6 +2384,10 @@ h1, h2, h3, h4, h5, h6, li, ol {
     .company__description {
         height: 370px;
     }
+
+    .menu.open {
+        left: 29%;
+    }
 }
 
 
