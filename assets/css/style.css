@@ -12,6 +12,7 @@ body {
     overflow: hidden;
 }
 
+
 h1, h2, h3, h4, h5, h6, li, ol {
     margin: 0 auto;
     padding: 0;
@@ -1371,8 +1372,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .equipment__title {
-        margin-right: 18.53%;
-        font-size: 126px;
+        margin-right: 18.73%;
+        font-size: 137px;
     }
 
     .equipment__description {
@@ -1404,7 +1405,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .equipment__title {
         margin-right: 40.9%;
-
+        width: auto;
         font-size: 85px;
     }
 
