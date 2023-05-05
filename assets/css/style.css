@@ -329,6 +329,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     width: 467px;
     height: 575px;
     background-image: url("../img/Timax.svg");
+    background-repeat: no-repeat;
 }
 
 .image-left {
@@ -339,6 +340,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     width: 671px;
     height: 430px;
     background-image: url("../img/Centrifuge.svg");
+    background-repeat: no-repeat;
 }
 
 .company__logo {
@@ -1336,10 +1338,12 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .image-left {
         width: 68%;
+        left: -111px;
+        bottom: -129px;
     }
 
     .image-right {
-        right: -15%;
+        right: -43%;
     }
 
     .image-right {
