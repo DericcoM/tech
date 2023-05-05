@@ -1,17 +1,28 @@
 let headerInner = document.querySelector('.header__inner');
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
+const menuOpen = document.querySelectorAll('.menu .nav__link');
 
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
     menu.classList.toggle('open');
 
     if (menu.classList.contains('open')) {
-        headerInner.style.height = '+200px';
+        headerInner.style.height = '370px';
         menu.style.display = 'flex'; // добавляем правило display: block
+        menuOpen.forEach( (el) => {
+            setTimeout(function() {
+                el.style.visibility = 'unset';
+            }, 200);
+        });
     } else {
         headerInner.style.height = '64px';
-        menu.style.display = 'none'; // скрываем меню
+        menu.style.display = 'none';
+        menuOpen.forEach( (el) => {
+            setTimeout(function() {
+                el.style.visibility = 'hidden';
+            }, 200);
+        });// скрываем меню
     }
 });
 
@@ -27,10 +38,9 @@ menuLinks.forEach(link => {
         const targetElement = document.querySelector(targetId); // получаем целевой элемент
 
 // вычисляем смещение относительно верхней части страницы
-        const offset = 140; // задаем необходимый отступ
         const rect = targetElement.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const targetTop = rect.top + scrollTop - offset;
+        const targetTop = rect.top + scrollTop;
 
 // скрываем меню и удаляем класс 'open' после клика
         menuToggleScroll.classList.remove('open');
@@ -158,12 +168,16 @@ languageButtons.forEach((button) => {
             button.classList.toggle('active', button === event.target);
         });
 
+
         const lang = event.target.dataset.lang;
         switchLanguage(lang);
     });
 });
 
+
+
 function switchLanguage(lang) {
+
     const elements = document.querySelectorAll('[data-translate]');
     loadTranslations(lang, function (translations) {
         elements.forEach(function (element) {
@@ -174,6 +188,9 @@ function switchLanguage(lang) {
             element.style.maxWidth = width;
             element.style.maxHeight = height;
             setTimeout(() => {
+                if (screenWidth < 1280) {
+                    enHeight();
+                }
                 element.textContent = translations[key];
                 element.style.opacity = 1;
             }, 500);
@@ -608,3 +625,22 @@ if (secondLink.classList.contains('active')) {
 let params = (new URL(document.location)).searchParams;
 console.log(params.get("data"));
 
+
+let screenWidth = window.innerWidth;
+
+if (screenWidth < 1280) {
+    document.addEventListener('DOMContentLoaded', () => {
+        enHeight();
+    });
+}
+
+function enHeight() {
+    const container = document.querySelector('.engineering__container');
+    const image2 = document.querySelector('.image2');
+    const social = document.querySelector('.social-container');
+    const image3 = document.querySelector('.social-bg');
+    const containerHeight = container.offsetHeight;
+    const socialHeight = social.offsetHeight;
+    image2.style.height = `${containerHeight}px`;
+    image3.style.height = `${socialHeight}px`;
+}
