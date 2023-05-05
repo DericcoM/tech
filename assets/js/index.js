@@ -591,8 +591,8 @@ function zoomImage() {
 
 zoomImage();
 
-let svg1 = document.querySelector('.image-right object');
-let svg2 = document.querySelector('.image-left object');
+let svg1 = document.querySelector('.image-right');
+let svg2 = document.querySelector('.image-left');
 
 let svg1CoeffX = 0.01;
 let svg1CoeffY = 0.01;

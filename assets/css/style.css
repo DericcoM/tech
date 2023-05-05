@@ -324,9 +324,11 @@ h1, h2, h3, h4, h5, h6, li, ol {
 .image-right {
     z-index: -1;
     position: absolute;
-
     right: 0;
     top: -10%;
+    width: 467px;
+    height: 575px;
+    background-image: url("../img/Timax.svg");
 }
 
 .image-left {
@@ -334,6 +336,9 @@ h1, h2, h3, h4, h5, h6, li, ol {
     position: absolute;
     left: -48px;
     bottom: -70px;
+    width: 671px;
+    height: 430px;
+    background-image: url("../img/Centrifuge.svg");
 }
 
 .company__logo {
@@ -1329,7 +1334,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         top: -6px;
     }
 
-    .image-left object {
+    .image-left {
         width: 68%;
     }
 
@@ -1337,7 +1342,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         right: -15%;
     }
 
-    .image-right object {
+    .image-right {
         width: 68%;
     }
 
@@ -1490,6 +1495,14 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 /* Media Query */
 @media (max-width: 1280px) {
+
+    .image-right {
+        display: none;
+    }
+
+    .image-left {
+        display: none;
+    }
 
     .logo__container:before {
         display: none;
