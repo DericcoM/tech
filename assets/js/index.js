@@ -197,6 +197,9 @@ function switchLanguage(lang) {
             }, 500);
         });
     });
+
+    const descriptionElement = document.querySelector('.company__description');
+    descriptionElement.classList.toggle('active');
 }
 
 function loadTranslations(lang, callback) {
@@ -595,10 +598,10 @@ zoomImage();
 let svg1 = document.querySelector('.image-right');
 let svg2 = document.querySelector('.image-left');
 
-let svg1CoeffX = 0.01;
-let svg1CoeffY = 0.01;
-let svg2CoeffX = -0.01;
-let svg2CoeffY = -0.01;
+let svg1CoeffX = 0.005;
+let svg1CoeffY = 0.005;
+let svg2CoeffX = -0.005;
+let svg2CoeffY = -0.005;
 
 
 document.addEventListener('mousemove', function (e) {

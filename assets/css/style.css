@@ -2353,7 +2353,12 @@ h1, h2, h3, h4, h5, h6, li, ol {
     .company__description {
         height: 290px;
         margin-top: 31px;
+        transition: height .5s ease-in-out;
 }
+
+    .company__description.active {
+        height: 210px;
+    }
 
 .company__inner {
     height: 833px;
@@ -2450,6 +2455,10 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .company__description {
         height: 335px;
+    }
+
+    .company__description.active {
+        height: 240px;
     }
 
 .company__prop-title {
