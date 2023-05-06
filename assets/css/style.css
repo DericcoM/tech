@@ -1563,7 +1563,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .header__inner {
-        transition: height 0.3s ease-in-out;
+        transition: all .3s ease-in-out;
     }
 
     .header__flagContainer {
@@ -1642,7 +1642,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .nav__link {
-        visibility: hidden;
         margin-bottom: 46px;
     }
 
@@ -1708,12 +1707,13 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .logo__container {
-        margin-top: 39px;
+        margin-top: 27px;
         margin-left: 28%;
         display: flex;
         position: relative;
         flex-direction: column;
         align-items: flex-start;
+
     }
 
     .company__logo-mob {
@@ -1747,6 +1747,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
         font-weight: 625;
         font-size: 24px;
         line-height: 28px;
+        margin-right: 25%;
+        margin-top: 9px;
     }
 
     .company__title:after {
@@ -2327,6 +2329,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     }
 
     .menu.open {
+        width: 152px;
         left: 120px;
     }
 }

@@ -4,6 +4,7 @@ const menu = document.querySelector('.menu');
 const menuOpen = document.querySelectorAll('.menu .nav__link');
 
 menuToggle.addEventListener('click', () => {
+    let screenWidth = window.innerWidth;
     menuToggle.classList.toggle('open');
     menu.classList.toggle('open');
 
@@ -12,7 +13,7 @@ menuToggle.addEventListener('click', () => {
         menu.style.display = 'flex'; // добавляем правило display: block
         menuOpen.forEach( (el) => {
             setTimeout(function() {
-                el.style.visibility = 'unset';
+                el.style.display = 'flex';
             }, 200);
         });
     } else {
@@ -20,7 +21,7 @@ menuToggle.addEventListener('click', () => {
         menu.style.display = 'none';
         menuOpen.forEach( (el) => {
             setTimeout(function() {
-                el.style.visibility = 'hidden';
+                el.style.display = 'none';
             }, 200);
         });// скрываем меню
     }
@@ -612,15 +613,6 @@ document.addEventListener('mousemove', function (e) {
     svg1.style.transform = 'translate(' + svg1X + 'px, ' + svg1Y + 'px)';
     svg2.style.transform = 'translate(' + svg2X + 'px, ' + svg2Y + 'px)';
 });
-
-
-const navLinks = document.querySelectorAll('.nav__link');
-const headerSecond = document.querySelector('.header--second');
-const secondLink = navLinks[1];
-
-if (secondLink.classList.contains('active')) {
-    headerSecond.style.opacity = '0.9';
-}
 
 let params = (new URL(document.location)).searchParams;
 console.log(params.get("data"));
