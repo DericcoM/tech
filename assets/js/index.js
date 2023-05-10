@@ -83,10 +83,19 @@ const translations = {
         "equipment__description-2": "Наши мощности находятся по всей России, и мы можем предложить собственное производство, а также оборудование от наших партнеров из Китая и Индии. Конечно, мы сделали все возможное, чтобы обеспечить надежность и эффективность нашего оборудования, и мы рады поделиться этим с нашими партнерами. Будьте уверены, что у нас есть все, что нужно для того, чтобы помочь вам в решении любых технологических задач!",
         "equipment__link__title": "Презентация основного оборудования:",
         "download": "СКАЧАТЬ",
-        "swiper__item-1": "ГРОХОТЫ",
-        "swiper__item-2": "ФЛОТОМАШИНЫ",
-        "swiper__item-3": "ДРОБИЛКИ",
-        "swiper__item-4": "ЦЕНТРИФУГИ",
+        "swiper__item-1": "Барабанные сепараторы",
+        "swiper__item-2": "Сепаратор Тимакс",
+        "swiper__item-3": "Флотационные машины",
+        "swiper__item-4": "Центрифуги",
+        "swiper__item-5": "Ленточные фильтр-прессы",
+        "swiper__item-6": "Радиальные сгустители",
+        "swiper__item-7": "Ламельные сгустители",
+        "swiper__item-8": "Дисковые вакуумные фильтры",
+        "swiper__item-9": "Камерные фильтр-прессы",
+        "swiper__item-10": "Грохоты",
+        "swiper__item-11": "Конвейерное оборудование",
+        "swiper__item-12": "Гидроциклоны",
+        "swiper__item-13": "Дробильное оборудование",
         "social__address": "630051, Российская Федерация, Новосибирск, ул. Ползунова, 3В, офис 201",
         "": ""
     },
@@ -115,50 +124,23 @@ const translations = {
         "equipment__description-2": "Our production facilities are located all over Russia. We can provide in-house solutions, as well as equipment from our partners in India and China. We have made every effort to ensure that our equipment is reliable and effective, and we are happy to share it with our partners. Rest assured: we are ready to assist you with any process issues you may have.",
         "equipment__link__title": "Main Equipment Presentation:",
         "download": "DOWNLOAD",
-        "swiper__item-1": "SCREENS",
-        "swiper__item-2": "FLOTATION MACHINES",
-        "swiper__item-3": "CRUSHERS",
+        "swiper__item-1": "DRUM SEPARATORS",
+        "swiper__item-2": "TIMAX SEPARATOR",
+        "swiper__item-3": "FLOTATION MACHINES",
         "swiper__item-4": "CENTRIFUGES",
+        "swiper__item-5": "BELT FILTER PRESSES",
+        "swiper__item-6": "RADIAL THICKENERS",
+        "swiper__item-7": "LAMELLAR THICKENERS",
+        "swiper__item-8": "DISK VACUUM FILTERS",
+        "swiper__item-9": "CHAMBER VACUUM FILTERS",
+        "swiper__item-10": "TIM SCREENS",
+        "swiper__item-11": "CONVEYOR EQUIPMENT",
+        "swiper__item-12": "HYDROCYCLONES",
+        "swiper__item-13": "Crushing equipment",
         "social__address": "3V, Polzunova St, Office 201, Novosibirsk, 630051 Russian Federation",
         "": ""
     }
 };
-
-// const languageButtons = document.querySelectorAll(".language");
-// languageButtons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//         languageButtons.forEach((button) => {
-//             button.classList.toggle('active', button === event.target);
-//         });
-//
-//         const lang = event.target.dataset.lang;
-//         switchLanguage(lang);
-//     });
-// });
-//
-// // Функция, которая переводит элементы с атрибутом data-translate
-// function translatePage(language) {
-//     // Находим все элементы на странице с атрибутом data-translate
-//     const elementsToTranslate = document.querySelectorAll('[data-translate]');
-//     // Проходимся по каждому элементу и заменяем его текст на соответствующий перевод
-//     elementsToTranslate.forEach(element => {
-//         const width = element.offsetWidth;
-//         const height = element.offsetHeight;
-//         element.style.maxWidth = width;
-//         element.style.maxHeight = height;
-//         element.style.opacity = 0;
-//         const translationKey = element.dataset.translate;
-//         const translation = translations[language][translationKey];
-//         setTimeout(() => {
-//
-//             element.textContent = translation;
-//             element.style.opacity = 1;
-//             }, 500);
-//
-//     });
-// }
-
-// Пример вызова функции для перевода страницы на русский язык
 
 
 const languageButtons = document.querySelectorAll(".language");
@@ -167,11 +149,15 @@ languageButtons.forEach((button) => {
     button.addEventListener('click', () => {
         languageButtons.forEach((button) => {
             button.classList.toggle('active', button === event.target);
+
         });
 
 
         const lang = event.target.dataset.lang;
         switchLanguage(lang);
+
+        const download = document.querySelector('.download');
+        download.href = lang == "en" ? "./assets/TIM_2023_En_7mb.pdf" : "./assets/ТИМ_2023_7mb.pdf"
     });
 });
 
@@ -180,19 +166,24 @@ languageButtons.forEach((button) => {
 function switchLanguage(lang) {
 
     const elements = document.querySelectorAll('[data-translate]');
+
     loadTranslations(lang, function (translations) {
+
         elements.forEach(function (element) {
+
             const height = element.offsetHeight;
             const width = element.offsetWidth;
             const key = element.dataset.translate;
             element.style.opacity = 0;
             element.style.maxWidth = width;
             element.style.maxHeight = height;
+
             setTimeout(() => {
                 if (screenWidth < 1280) {
                     enHeight();
                 }
                 element.textContent = translations[key];
+
                 element.style.opacity = 1;
             }, 500);
         });
@@ -200,6 +191,12 @@ function switchLanguage(lang) {
 
     const descriptionElement = document.querySelector('.company__description');
     descriptionElement.classList.toggle('active');
+    const title = document.querySelector('.company__logo-text');
+    title.classList.toggle('active');
+    const made = document.querySelector('.company__madeContainer');
+    made.classList.toggle('active');
+
+
 }
 
 function loadTranslations(lang, callback) {
@@ -303,7 +300,7 @@ function initSwiper() {
         var swiper = new Swiper(".text-slider", {
             spaceBetween: 10,
             slidesPerView: 4,
-            width: 1100,
+            width: 1700,
             watchSlidesProgress: true,
             on: {
                 slideChange: function () {
@@ -315,11 +312,6 @@ function initSwiper() {
                     var activeSlideOffsetLeft = activeSlide.offsetLeft;
                     console.log(activeSlideOffsetLeft);
                     let newOffset = activeSlideOffsetLeft /  (-1);
-                    // if (newOffset < -200) {
-                    //     newOffset = -200;
-                    // } else if (newOffset > 0) {
-                    //     newOffset = 0;
-                    // }
                     wrapper.style.transform = "translate3d(" + newOffset + "px, 0px, 0px)";
                 }
             }
@@ -339,8 +331,8 @@ function initSwiper() {
         });
 
         var swiperDots = new Swiper(".swiper-pagination", {
-            spaceBetween: 10,
-            slidesPerView: 4,
+            spaceBetween: 30,
+            slidesPerView: 12,
             virtualTranslate: true,
             on: {
                 slideChange: function () {
@@ -480,55 +472,6 @@ if (swiperMain) {
         swiperDotsChangeActive(activeSlide);
     });
 }
-
-//
-// // получаем элемент swiper-wrapper
-// var wrapper = document.querySelector('.swiper--main .swiper-wrapper');
-//
-// // подписываемся на событие скролла на элементе
-// document.addEventListener('wheel', function (e) {
-//     e.preventDefault(); // отменяем стандартное поведение скролла
-//
-//     // определяем направление скролла
-//     var direction = (e.deltaY > 0) ? 'next' : 'prev';
-//
-//     // вызываем метод slideTo с нужным индексом слайда
-//     if (direction == 'next') {
-//         swiperMain.slideNext();
-//     } else {
-//         swiperMain.slidePrev();
-//     }
-// });
-//
-// var touchStartX, touchStartY;
-//
-// document.addEventListener('touchstart', function (e) {
-//     touchStartX = e.touches[0].clientX;
-//     touchStartY = e.touches[0].clientY;
-// });
-//
-// document.addEventListener('touchend', function (e) {
-//     var touchEndX = e.changedTouches[0].clientX;
-//     var touchEndY = e.changedTouches[0].clientY;
-//     var dx = touchEndX - touchStartX;
-//     var dy = touchEndY - touchStartY;
-//
-//     // определяем направление свайпа
-//     var direction;
-//     if (Math.abs(dx) > Math.abs(dy)) {
-//         direction = dx > 0 ? 'prev' : 'next';
-//     } else {
-//         direction = dy > 0 ? 'prev' : 'next';
-//     }
-//
-//     // вызываем метод slideTo с нужным индексом слайда
-//     if (direction == 'next') {
-//         swiperMain.slideNext();
-//     } else {
-//         swiperMain.slidePrev();
-//     }
-// });
-
 
 let swiperDotsChangeActive = (activeSlide) => {
     let dots = document.querySelectorAll('.scroll-menu .scroll-page');

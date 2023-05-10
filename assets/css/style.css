@@ -303,22 +303,37 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 .company__logo-text {
     position: relative;
+    margin-bottom: 10px;
     display: flex;
     align-items: flex-start;
     margin-left: -10px;
+    width: 444px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-image: url("../img/logo-main-rus.svg");
+    background-size: contain;
+    transition: all .3s linear;
+}
+
+.company__logo-text.active {
+    margin-left: 1px;
+    width: 395px;
+    background-image: url("../img/logo-text-en.svg");
 }
 
 .logo__container:before {
     position: absolute;
     left: -200px;
-    top: 4px;
+    top: -35px;
     content: "";
     display: inline-block;
+    background-repeat: no-repeat;
     /* padding-top: 4px; */
     /* margin-right: 8px; */
-    width: 199px;
+    width: 166px;
     height: 144px;
-    background-image: url("../img/1.png");
+    background-image: url("../img/logo-flower.svg");
+    background-size: contain;
 }
 
 .image-right {
@@ -601,6 +616,13 @@ h1, h2, h3, h4, h5, h6, li, ol {
 .company__madeContainer {
     width: 129px;
     height: 39px;
+    background-repeat: no-repeat;
+    background-image: url("../img/made-ru.svg");
+    transition: all .3s linear;
+}
+
+.company__madeContainer.active {
+    background-image: url("../img/made-en.svg");
 }
 
 .company__madeContainer img {
@@ -1500,6 +1522,16 @@ h1, h2, h3, h4, h5, h6, li, ol {
 /* Media Query */
 @media (max-width: 1280px) {
 
+    .company__madeContainer {
+        background-size: contain;
+        width: 83px;
+        height: 25px;
+    }
+
+    .swiper__item {
+        font-size: 15px;
+    }
+
     .image-right {
         display: none;
     }
@@ -1508,12 +1540,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
         display: none;
     }
 
-    .logo__container:before {
-        display: none;
-    }
-    .company__logo-text {
-        display: none;
-    }
 
     .text-slider {
         margin-top: -1%;
@@ -1723,9 +1749,15 @@ h1, h2, h3, h4, h5, h6, li, ol {
          /*margin-bottom: 4%;*/
     }
 
+    .company__logo-text {
+        margin-left: -2%;
+        width: 261px;
+        height: 51px;
+    }
+
     .logo__container:before {
         position: absolute;
-        left: -89px;
+        left: -93px;
         top: 0;
         content: "";
         display: inline-block;
@@ -1733,7 +1765,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
         margin-right: 8px;
         width: 88px;
         height: 66px;
-        background-image: url("../img/mob-1.png");
     }
 
     .bckg-mix {
@@ -1784,6 +1815,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
     .company__description {
         height: 100px;
         margin: 5%;
+        margin-right: 7%;
         opacity: 1;
         font-style: normal;
         font-weight: 200;
@@ -2174,9 +2206,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         display: none;
     }
 
-    .company__madeContainer {
-        display: none;
-    }
+
 
     .company__madeContainer-mob {
         display: block;
