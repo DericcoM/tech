@@ -195,7 +195,8 @@ function switchLanguage(lang) {
     title.classList.toggle('active');
     const made = document.querySelector('.company__madeContainer');
     made.classList.toggle('active');
-
+    const madeMob = document.querySelector('.company__madeContainer-mob');
+    madeMob.classList.toggle('active');
 
 }
 

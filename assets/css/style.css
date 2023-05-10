@@ -631,6 +631,10 @@ h1, h2, h3, h4, h5, h6, li, ol {
     height: 100%;
 }
 
+.company__madeContainer-mob {
+    display: none;
+}
+
 .container--engineering {
     display: flex;
     justify-content: flex-end;
@@ -1226,9 +1230,6 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 
-.company__madeContainer-mob {
-    display: none;
-}
 
 [data-translate] {
     transition: opacity 0.5s ease;
@@ -1521,6 +1522,22 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 /* Media Query */
 @media (max-width: 1280px) {
+
+    .company__madeContainer-mob {
+        display: block;
+    }
+
+    .company__madeContainer-mob {
+        width: 129px;
+        height: 39px;
+        background-repeat: no-repeat;
+        background-image: url("../img/made-ru.svg");
+        transition: all .3s linear;
+    }
+
+    .company__madeContainer-mob.active {
+        background-image: url("../img/made-en.svg");
+    }
 
     .company__madeContainer {
         background-size: contain;
