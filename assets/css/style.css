@@ -321,6 +321,17 @@ h1, h2, h3, h4, h5, h6, li, ol {
     background-image: url("../img/logo-text-en.svg");
 }
 
+.company__logo-text.active::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 395px;
+    width: 17px;
+    height: 17px;
+    background-image: url("../img/Union.svg");
+    background-repeat: no-repeat;
+}
+
 .logo__container:before {
     position: absolute;
     left: -200px;
@@ -1083,16 +1094,25 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 .social-logo-container {
+
     padding-top: 1%;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    background-repeat: no-repeat;
+    background-image: url("../img/logo-footer.svg");
+    transition: all .5s linear;
 }
 
 .social-logo-container {
     width: 492px;
     height: 193px;
 }
+
+.social-logo-container.active {
+    background-image: url("../img/logo-footer-en.svg");
+}
+
 
 .social-info {
     align-items: center;
@@ -1523,6 +1543,18 @@ h1, h2, h3, h4, h5, h6, li, ol {
 /* Media Query */
 @media (max-width: 1280px) {
 
+    .company__logo-text.active::after {
+        content: "";
+        position: absolute;
+        top: -7px;
+        left: 247px;
+        width: 10px;
+        height: 10px;
+        background-size: contain;
+        background-image: url("../img/Union.svg");
+        background-repeat: no-repeat;
+    }
+
     .company__madeContainer-mob {
         display: block;
     }
@@ -1596,7 +1628,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
         padding: 0;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         min-height: auto;
         flex-direction: column;
     }
@@ -1751,7 +1783,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .logo__container {
         margin-top: 27px;
-        margin-left: 28%;
+        margin-left: 26%;
         display: flex;
         position: relative;
         flex-direction: column;
@@ -2091,7 +2123,7 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .image-slider {
         width: 1280px;
-        height: 469px;
+        height: 481px;
     }
 
     .equipment__description.active:before {
@@ -2126,8 +2158,8 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
 
     #third {
-        margin: auto;
-        padding: 5% 2%;
+        margin: auto 3%;
+        padding: 3% 2%;
     }
 
     .social-container {
@@ -2144,7 +2176,23 @@ h1, h2, h3, h4, h5, h6, li, ol {
 
     .social-logo-container-mob {
         display: block;
-        padding: 10% 0 42px 0;
+        padding-top: 1%;
+        object-fit: contain;
+        background-repeat: no-repeat;
+        background-image: url("../img/logo-footer.svg");
+        transition: all .5s linear;
+    }
+
+    .social-logo-container-mob {
+        margin-top: 20px;
+        width: 279px;
+        background-size: contain;
+        height: 101px;
+    }
+
+
+    .social-logo-container-mob.active {
+        background-image: url("../img/logo-footer-en.svg");
     }
 
     .social-info {
@@ -2446,6 +2494,11 @@ h1, h2, h3, h4, h5, h6, li, ol {
 }
 
 @media (max-width: 425px) {
+
+    .image-slider {
+        width: 1280px;
+        height: 284px;
+    }
 
 .company__prop-title {
     font-style: normal;

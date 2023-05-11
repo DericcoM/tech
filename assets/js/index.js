@@ -197,7 +197,10 @@ function switchLanguage(lang) {
     made.classList.toggle('active');
     const madeMob = document.querySelector('.company__madeContainer-mob');
     madeMob.classList.toggle('active');
-
+    const socLogo = document.querySelector('.social-logo-container');
+    socLogo.classList.toggle('active');
+    const socLogoMob = document.querySelector('.social-logo-container-mob');
+    socLogoMob.classList.toggle('active');
 }
 
 function loadTranslations(lang, callback) {
@@ -303,11 +306,13 @@ function initSwiper() {
             slidesPerView: 4,
             width: 1700,
             watchSlidesProgress: true,
+            autoplay: {
+                delay: 5000, // время между прокрутками в миллисекундах
+                disableOnInteraction: false // автопрокрутка не будет отключаться при взаимодействии с пользователем
+            },
             on: {
                 slideChange: function () {
-
                     swiper2.slideTo(this.activeIndex);
-
                     var wrapper = this.$wrapperEl[0];
                     var activeSlide = this.slides[this.activeIndex];
                     var activeSlideOffsetLeft = activeSlide.offsetLeft;
@@ -317,6 +322,7 @@ function initSwiper() {
                 }
             }
         });
+
         var swiper2 = new Swiper(".image-slider", {
             spaceBetween: 1,
             simulateTouch: true,
